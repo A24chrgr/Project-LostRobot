@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a4297a899c3ca014b9cdb10059be8636
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 227566
+  packageName: Stylized Forest - Humble Nature
+  packageVersion: 1.3.2
+  assetPath: Assets/HumbleNature/Scripts/Sky/SkyManager.cs
+  uploadId: 611424

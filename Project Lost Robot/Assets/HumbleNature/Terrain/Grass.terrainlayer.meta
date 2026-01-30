@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 37403f8f0fbdeb5439e785fd3e67c8d1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 227566
+  packageName: Stylized Forest - Humble Nature
+  packageVersion: 1.3.2
+  assetPath: Assets/HumbleNature/Terrain/Grass.terrainlayer
+  uploadId: 611424

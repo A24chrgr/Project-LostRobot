@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fee91930db1f0154498d0ccebdf6733b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 227566
+  packageName: Stylized Forest - Humble Nature
+  packageVersion: 1.3.2
+  assetPath: Assets/HumbleNature/Materials/Tree01_Trunk_Dark.mat
+  uploadId: 611424

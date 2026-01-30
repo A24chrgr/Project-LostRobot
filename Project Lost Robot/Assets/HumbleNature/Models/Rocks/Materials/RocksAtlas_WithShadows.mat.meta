@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d5394379849402046aec8808d398e292
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 227566
+  packageName: Stylized Forest - Humble Nature
+  packageVersion: 1.3.2
+  assetPath: Assets/HumbleNature/Models/Rocks/Materials/RocksAtlas_WithShadows.mat
+  uploadId: 611424

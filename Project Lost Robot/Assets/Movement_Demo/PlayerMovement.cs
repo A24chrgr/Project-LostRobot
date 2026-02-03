@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,9 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [Tooltip("Smoothing of starting and ending movement | (Recommend 0.2f)")][Range(0f, 1f)][SerializeField] float movementDampening; // 0.2f
     [SerializeField] float rotationDampening;
-    [SerializeField] float movementSpeed = 7, rotationSpeed = 210f;
+    [SerializeField] float movementSpeed = 7f, rotationSpeed = 210f, hoverSpeed = 7f;
     private Vector3 inputDirection;
-    private Vector3 facingDirection;
 
     Vector3 redirectedNormalz;
     Vector3 redirectedNormalx;
@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private bool movementKeyIsHeld;
     private Rigidbody rB;
     private Vector2 speedVector;
+    [NonSerialized] public bool isForced;
     [Header("Debug")]
     [SerializeField] GameObject facingBall;
 
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         UpdateMovement();
-        UpdateRotation2();
+        DelayedRotation();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void UpdateMovement()
     {
+        if (isForced) return;
         Vector3 cameraFacingNormal = new Vector3(cameraObject.transform.forward.x, 0, cameraObject.transform.forward.z);
         redirectedNormalz = cameraFacingNormal.normalized;
         redirectedNormalx = Vector3.Cross(Vector3.up, cameraFacingNormal).normalized;
@@ -80,6 +82,33 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    public void ForcedMovement(Vector3 forcedDirection)
+    {
+        Vector3 cameraFacingNormal = new Vector3(cameraObject.transform.forward.x, 0, cameraObject.transform.forward.z);
+        redirectedNormalz = cameraFacingNormal.normalized;
+        redirectedNormalx = Vector3.Cross(Vector3.up, cameraFacingNormal).normalized;
+
+
+        rB.linearVelocity = Vector3.Lerp(rB.linearVelocity, (redirectedNormalx * forcedDirection.x * movementSpeed) + (transform.forward * forcedDirection.y * hoverSpeed * 1.5f), Mathf.Max(movementDampening, 0.001f));
+
+        if ((inputDirection.x == 0 || !movementKeyIsHeld) && speedVector.x != 0)
+        {
+            speedVector.x = speedVector.x / 2;
+            if (speedVector.x < 0.05f)
+            {
+                speedVector.x = 0;
+            }
+        }
+        if ((inputDirection.y == 0 || !movementKeyIsHeld) && speedVector.y != 0)
+        {
+            speedVector.y = speedVector.y / 2;
+            if (speedVector.y < 0.05f)
+            {
+                speedVector.y = 0;
+            }
+        }
+    }
+    // private Vector3 facingDirection;
     /* void UpdateRotation()
     {
         if (movementKeyIsHeld)
@@ -89,8 +118,7 @@ public class PlayerMovement : MonoBehaviour
             transform.LookAt(facingDirection);
         }
     } */
-
-    void UpdateRotation2()
+    void DelayedRotation()
     {
         Vector3 currentForward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
 

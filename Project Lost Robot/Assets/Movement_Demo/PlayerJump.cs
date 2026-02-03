@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,13 +12,15 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] float JumpForce = 12f, gravityScaleDefault = 90f, gravityScaleHover = 10f, jumpTimeDelay = 0.1f, maxJumpTime = 0.05f;
     private float gravityScaleActive, timeHoldingJump;
     [SerializeField] bool isGrounded, isOnCooldown;
-    private bool isHoldingJumpButton;
+    private bool isHoldingJumpButton, toggledHover, isHoverAvailable;
     [SerializeField] GameObject ballGameObject;
-    [SerializeField] float hoverHeight = 0.75f;
+    [SerializeField] float hoverHeight = 0.75f, forceDownHeight = 1, blockHoveringHeight = 2;
+    private PlayerMovement pM;
 
     void Awake()
     {
         rB = GetComponent<Rigidbody>();
+        pM = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
         jumpAction = playerInput.actions.FindAction("Jump");
         gravityScaleActive = gravityScaleDefault;
@@ -26,42 +29,50 @@ public class PlayerJump : MonoBehaviour
     void Update()
     {
         if (!isGrounded) rB.AddForce(new Vector3(0, -gravityScaleActive, 0), ForceMode.Acceleration); // Simulates Gravity
-        if (isGrounded && !isOnCooldown && jumpAction.WasPressedThisFrame()) { isHoldingJumpButton = true; timeHoldingJump = 0; }
-        if (jumpAction.WasReleasedThisFrame()) { isHoldingJumpButton = false; StartCoroutine(JumpCooldown()); }
-    }
+        if (jumpAction.WasPressedThisFrame())
+        {
+            isHoldingJumpButton = true;
+            if (isGrounded && !isOnCooldown) timeHoldingJump = 0;
+        }
+        if (jumpAction.WasPressedThisFrame() && !isGrounded) { toggledHover = true; }
+        if (jumpAction.WasReleasedThisFrame()) { isHoldingJumpButton = false; toggledHover = false; StartCoroutine(JumpCooldown()); }
 
-    void FixedUpdate()
-    {
         CheckGrounded();
         if (isHoldingJumpButton)
         {
-            if (timeHoldingJump < maxJumpTime)
+            if (timeHoldingJump < maxJumpTime) // The jump force depending on hold
             {
                 rB.AddForce(new Vector3(0, JumpForce, 0), ForceMode.VelocityChange);
                 timeHoldingJump += Time.deltaTime;
             }
-            else if (!isGrounded)
+            else if (!isGrounded && toggledHover && isHoverAvailable) // If holding trigger hover
             {
                 gravityScaleActive = gravityScaleHover;
+                pM.ForcedMovement(Vector3.up);
+                pM.isForced = true;
             }
-            else
+            else // if grounded again trigger a forced reset
             {
                 isHoldingJumpButton = false;
                 gravityScaleActive = gravityScaleDefault;
                 StartCoroutine(JumpCooldown());
+                pM.isForced = false;
+                toggledHover = false;
             }
         }
         else
         {
             gravityScaleActive = gravityScaleDefault;
+            pM.isForced = false;
+            toggledHover = false;
         }
     }
     void CheckGrounded()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1f))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 15f))
         {
-            if (hit.transform.CompareTag("Ground"))
+            if (hit.transform.CompareTag("Ground") && hit.distance <= forceDownHeight)
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
                 isGrounded = true;
@@ -70,24 +81,24 @@ public class PlayerJump : MonoBehaviour
             {
                 isGrounded = false;
             }
-            ballGameObject.transform.position = transform.position + Vector3.down * hit.distance;
+            if (hit.transform.CompareTag("Ground") && (hit.distance <= blockHoveringHeight))
+            {
+                isHoverAvailable = false;
+            }
+            else
+            {
+                isHoverAvailable = true;
+            }
             if (isGrounded && !isOnCooldown)
             {
                 transform.position = transform.position + Vector3.down * (hit.distance - hoverHeight);
             }
-
         }
         else
         {
             isGrounded = false;
         }
     }
-    public IEnumerator TestJump(InputAction.CallbackContext context)
-    {
-        yield return new WaitForSeconds(jumpTimeDelay);
-    }
-
-
 
     IEnumerator JumpCooldown()
     {

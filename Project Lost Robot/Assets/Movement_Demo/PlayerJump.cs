@@ -10,7 +10,7 @@ public class PlayerJump : MonoBehaviour
     private InputAction jumpAction;
 
     [SerializeField] float JumpForce = 12f, gravityScaleDefault = 90f, gravityScaleHover = 10f, jumpTimeDelay = 0.1f, maxJumpTime = 0.05f;
-    private float gravityScaleActive, timeHoldingJump;
+    private float gravityScaleActive, timeHoldingJump, fixedDeltaTime, deltaTime;
     [SerializeField] bool isGrounded, isOnCooldown;
     private bool isHoldingJumpButton, toggledHover, isHoverAvailable;
     [SerializeField] GameObject ballGameObject;
@@ -28,6 +28,7 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        deltaTime = Time.deltaTime;
         if (!isGrounded) rB.AddForce(new Vector3(0, -gravityScaleActive, 0), ForceMode.Acceleration); // Simulates Gravity
         if (jumpAction.WasPressedThisFrame())
         {
@@ -36,14 +37,17 @@ public class PlayerJump : MonoBehaviour
         }
         if (jumpAction.WasPressedThisFrame() && !isGrounded) { toggledHover = true; }
         if (jumpAction.WasReleasedThisFrame()) { isHoldingJumpButton = false; toggledHover = false; StartCoroutine(JumpCooldown()); }
-
+    }
+    void FixedUpdate()
+    {
+        fixedDeltaTime = Time.fixedDeltaTime;
         CheckGrounded();
         if (isHoldingJumpButton)
         {
             if (timeHoldingJump < maxJumpTime) // The jump force depending on hold
             {
                 rB.AddForce(new Vector3(0, JumpForce, 0), ForceMode.VelocityChange);
-                timeHoldingJump += Time.deltaTime;
+                timeHoldingJump += fixedDeltaTime;
             }
             else if (!isGrounded && toggledHover && isHoverAvailable) // If holding trigger hover
             {
@@ -55,7 +59,7 @@ public class PlayerJump : MonoBehaviour
             {
                 isHoldingJumpButton = false;
                 gravityScaleActive = gravityScaleDefault;
-                StartCoroutine(JumpCooldown());
+                if(!isOnCooldown) StartCoroutine(JumpCooldown());
                 pM.isForced = false;
                 toggledHover = false;
             }

@@ -1306,7 +1306,7 @@ GameObject:
   - component: {fileID: 779974888}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Finish
+  m_TagString: PickUpObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3688,6 +3688,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a7f834db-2df8-4413-bce5-b076f1f94896
     m_ActionName: 'Player1/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5ff3e1f-a65a-42b4-95fc-cda7177c52ea
+    m_ActionName: 'Player1/PickUp[/DualSenseGamepadHID/rightTrigger,/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1

@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rB;
     private Vector2 speedVector;
     [NonSerialized] public bool isForced;
+    private float fixedDeltaTime, deltaTime;
     [Header("Debug")]
     [SerializeField] GameObject facingBall;
 
@@ -29,12 +30,17 @@ public class PlayerMovement : MonoBehaviour
         rB = GetComponent<Rigidbody>();
         cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
     }
-
     void Update()
     {
-        UpdateMovement();
+        deltaTime = Time.deltaTime;
         DelayedRotation();
+        UpdateMovement();
     }
+    void FixedUpdate()
+    {
+        fixedDeltaTime = Time.fixedDeltaTime;
+    }
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -120,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
     } */
     void DelayedRotation()
     {
-        if(!movementKeyIsHeld) return;
+        if (!movementKeyIsHeld) return;
         Vector3 currentForward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
 
         Vector3 camForward = cameraObject.transform.forward;
@@ -136,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
             camForward * inputDirection.y +
             camRight * inputDirection.x;
 
-        float radians = rotationSpeed * Mathf.Deg2Rad * Time.deltaTime;
+        float radians = rotationSpeed * Mathf.Deg2Rad * deltaTime;
         Vector3 newForward =
             Vector3.RotateTowards(currentForward, targetDirection, radians, 0f);
         transform.rotation = Quaternion.LookRotation(newForward, Vector3.up);

@@ -120,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
     } */
     void DelayedRotation()
     {
+        if(!movementKeyIsHeld) return;
         Vector3 currentForward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
 
         Vector3 camForward = cameraObject.transform.forward;

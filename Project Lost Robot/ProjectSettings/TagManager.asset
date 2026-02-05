@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - PlayersMidPoint
+  - PickUpObject
+  - Punchable
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,6 @@ namespace Grupp14
     public class PlayerPickUp : MonoBehaviour
     {
         private bool isHoldingObject;
-        [SerializeField] GameObject pickUpRange;
         private GameObject heldObject;
         [SerializeField] GameObject holdingPoint;
 
@@ -16,7 +15,6 @@ namespace Grupp14
         {
             playerInput = GetComponent<PlayerInput>();
             interactAction = playerInput.actions.FindAction("PickUp");
-            pickUpRange.SetActive(false);
         }
         void Update()
         {
@@ -52,7 +50,9 @@ namespace Grupp14
             {
                 if (!hit.transform.CompareTag("PickUpObject")) return;
                 heldObject = hit.transform.gameObject;
+                heldObject.GetComponent<InteractTrigger>()?.TriggerEvent();
                 isHoldingObject = true;
+
                 heldObject.transform.parent = holdingPoint.transform;
                 heldObject.transform.position = holdingPoint.transform.position;
                 heldObject.GetComponent<Collider>().enabled = false;

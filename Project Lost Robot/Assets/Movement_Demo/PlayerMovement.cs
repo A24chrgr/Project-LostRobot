@@ -7,21 +7,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [Tooltip("Smoothing of starting and ending movement | (Recommend 0.2f)")][Range(0f, 1f)][SerializeField] float movementDampening; // 0.2f
-    [SerializeField] float rotationDampening;
     [SerializeField] float movementSpeed = 7f, rotationSpeed = 210f, hoverSpeed = 7f;
+
+
     private Vector3 inputDirection;
-
-    Vector3 redirectedNormalz;
-    Vector3 redirectedNormalx;
-    GameObject cameraObject;
-
+    private Vector3 redirectedNormalz;
+    private Vector3 redirectedNormalx;
+    private GameObject cameraObject;
     private bool movementKeyIsHeld;
     private Rigidbody rB;
     private Vector2 speedVector;
     [NonSerialized] public bool isForced;
-    private float fixedDeltaTime, deltaTime;
-    [Header("Debug")]
-    [SerializeField] GameObject facingBall;
+    private float fixedDeltaTime;
 
     void Awake()
     {
@@ -30,14 +27,10 @@ public class PlayerMovement : MonoBehaviour
         rB = GetComponent<Rigidbody>();
         cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
     }
-    void Update()
-    {
-        deltaTime = Time.deltaTime;
-        DelayedRotation();
-        UpdateMovement();
-    }
     void FixedUpdate()
     {
+        UpdateMovement();
+        DelayedRotation();
         fixedDeltaTime = Time.fixedDeltaTime;
     }
 
@@ -69,7 +62,10 @@ public class PlayerMovement : MonoBehaviour
         redirectedNormalx = Vector3.Cross(Vector3.up, cameraFacingNormal).normalized;
 
 
-        rB.linearVelocity = Vector3.Lerp(rB.linearVelocity, (redirectedNormalx * inputDirection.x * speedVector.x) + (redirectedNormalz * inputDirection.y * speedVector.y), Mathf.Max(movementDampening, 0.001f));
+        Vector3 movementLerped = Vector3.Lerp(rB.linearVelocity, (redirectedNormalx * inputDirection.x * speedVector.x) + (redirectedNormalz * inputDirection.y * speedVector.y), Mathf.Max(movementDampening, 0.001f));
+        movementLerped.y = rB.linearVelocity.y;
+        rB.linearVelocity = movementLerped;
+
 
         if ((inputDirection.x == 0 || !movementKeyIsHeld) && speedVector.x != 0)
         {
@@ -94,8 +90,9 @@ public class PlayerMovement : MonoBehaviour
         redirectedNormalz = cameraFacingNormal.normalized;
         redirectedNormalx = Vector3.Cross(Vector3.up, cameraFacingNormal).normalized;
 
-
-        rB.linearVelocity = Vector3.Lerp(rB.linearVelocity, (redirectedNormalx * forcedDirection.x * movementSpeed) + (transform.forward * forcedDirection.y * hoverSpeed * 1.5f), Mathf.Max(movementDampening, 0.001f));
+        Vector3 movementLerped = Vector3.Lerp(rB.linearVelocity, (redirectedNormalx * forcedDirection.x * movementSpeed) + (transform.forward * forcedDirection.y * hoverSpeed * 1.5f), Mathf.Max(movementDampening, 0.001f));
+        movementLerped.y = rB.linearVelocity.y;
+        rB.linearVelocity = movementLerped;
 
         if ((inputDirection.x == 0 || !movementKeyIsHeld) && speedVector.x != 0)
         {
@@ -114,16 +111,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    // private Vector3 facingDirection;
-    /* void UpdateRotation()
-    {
-        if (movementKeyIsHeld)
-        {
-            facingDirection = Vector3.Lerp(facingDirection, transform.position + (redirectedNormalx * inputDirection.x + redirectedNormalz * inputDirection.y * 2), 1);
-            facingBall.transform.position = facingDirection;
-            transform.LookAt(facingDirection);
-        }
-    } */
     void DelayedRotation()
     {
         if (!movementKeyIsHeld) return;
@@ -142,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
             camForward * inputDirection.y +
             camRight * inputDirection.x;
 
-        float radians = rotationSpeed * Mathf.Deg2Rad * deltaTime;
+        float radians = rotationSpeed * Mathf.Deg2Rad * fixedDeltaTime;
         Vector3 newForward =
             Vector3.RotateTowards(currentForward, targetDirection, radians, 0f);
         transform.rotation = Quaternion.LookRotation(newForward, Vector3.up);

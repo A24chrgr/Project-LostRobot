@@ -2521,7 +2521,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
   m_PrefabInstance: {fileID: 1643529012}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1643529013}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -3265,6 +3265,42 @@ PrefabInstance:
       propertyPath: m_Actions
       value: 
       objectReference: {fileID: -944628639613478452, guid: f2546233f18496e4683baa990a93c701, type: 3}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: 759ce9a0-635b-4514-8b55-fe9365d2527f
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: 6fcd8759-e0d1-4791-8c19-f839fbfab073
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 42df303e-dbea-4a07-90c8-36101249baf1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: 'Player1/Punch[/Mouse/rightButton]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: Player1/TestCinematic
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: Player1/TestCinematicENd
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1643529013}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8486103515200354672, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
       propertyPath: m_Name
       value: Animal
@@ -3274,6 +3310,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+--- !u!1 &1643529013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8486103515200354672, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+  m_PrefabInstance: {fileID: 1643529012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1689627273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4386,7 +4427,7 @@ MonoBehaviour:
     m_ActionId: 42df303e-dbea-4a07-90c8-36101249baf1
     m_ActionName: Player1/TestCinematicENd
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

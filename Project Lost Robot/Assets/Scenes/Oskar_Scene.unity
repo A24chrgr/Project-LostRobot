@@ -3054,6 +3054,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: d56e8ffd4eef269469f871473218c85e, type: 3}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: 759ce9a0-635b-4514-8b55-fe9365d2527f
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: 6fcd8759-e0d1-4791-8c19-f839fbfab073
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 42df303e-dbea-4a07-90c8-36101249baf1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: 'Player1/Punch[/DualSenseGamepadHID/rightShoulder,/Mouse/rightButton]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: 'Player1/TestCinematic[/DualSenseGamepadHID/dpad/up]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: 'Player1/TestCinematicENd[/DualSenseGamepadHID/dpad/down]'
+      objectReference: {fileID: 0}
     - target: {fileID: 8486103515200354672, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
       propertyPath: m_Name
       value: Animal
@@ -4047,6 +4079,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 759ce9a0-635b-4514-8b55-fe9365d2527f
     m_ActionName: 'Player1/Punch[/DualSenseGamepadHID/rightShoulder,/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6fcd8759-e0d1-4791-8c19-f839fbfab073
+    m_ActionName: 'Player1/TestCinematic[/DualSenseGamepadHID/dpad/up]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42df303e-dbea-4a07-90c8-36101249baf1
+    m_ActionName: 'Player1/TestCinematicENd[/DualSenseGamepadHID/dpad/down]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1

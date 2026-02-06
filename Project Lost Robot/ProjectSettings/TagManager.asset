@@ -8,6 +8,11 @@ TagManager:
   - PlayersMidPoint
   - PickUpObject
   - Punchable
+  - Fruit
+  - TeleportSpot
+  - Mango
+  - Ralos
+  - TeleportSpot2temp
   layers:
   - Default
   - TransparentFX

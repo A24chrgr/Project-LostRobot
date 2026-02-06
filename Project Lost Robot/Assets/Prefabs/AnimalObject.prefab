@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f2546233f18496e4683baa990a93c701, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 82dc7df74d76b2f428d29293cdcff1f8, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -1050,6 +1050,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b5ff3e1f-a65a-42b4-95fc-cda7177c52ea
     m_ActionName: 'Player1/PickUp[/DualSenseGamepadHID/rightTrigger,/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 759ce9a0-635b-4514-8b55-fe9365d2527f
+    m_ActionName: 'Player1/Punch[/DualSenseGamepadHID/rightShoulder,/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6fcd8759-e0d1-4791-8c19-f839fbfab073
+    m_ActionName: 'Player1/TestCinematic[/DualSenseGamepadHID/dpad/up]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42df303e-dbea-4a07-90c8-36101249baf1
+    m_ActionName: 'Player1/TestCinematicENd[/DualSenseGamepadHID/dpad/down]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player1
@@ -1084,12 +1096,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 8172814188812785347}
-  maximumFallingForce: -9
-  hoveringForce: -3
   JumpForce: 7
   jumpTimeDelay: 0.1
   maxJumpTime: 0.05
-  hoverHeight: 0.75
+  maximumFallingForce: -9
+  airHoveringForce: -3
+  playerHoverAboveGroundHeight: 0.75
   forceDownHeight: 1
   lowestHoveringHeight: 2
   frameRate: 120
@@ -1105,6 +1117,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67607f9a77e0933478a6d4846f740f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpRange: {fileID: 3626483163234703066}
   holdingPoint: {fileID: 1330695126620859801}
   playerInput: {fileID: 8172814188812785347}

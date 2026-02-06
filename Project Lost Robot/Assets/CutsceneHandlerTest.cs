@@ -46,7 +46,7 @@ public class CutsceneHandlerTest : MonoBehaviour
         
         tpSpot2 = GameObject.FindGameObjectWithTag("TeleportSpot2temp").GetComponent<Transform>().position;
         
-        mango.transform.position = tpSpot1;
+        ralos.transform.position = tpSpot1;
         
         //tempkod nedan--------------
         fruitObject.transform.position = tpSpot2;

@@ -18,17 +18,22 @@ namespace Grupp14
         }
         void Update()
         {
+            RaycastHit hit;
             if (interactAction.WasPressedThisFrame())
             {
                 if (isHoldingObject)
                 {
                     Drop();
                 }
-                else
+                else if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1))
                 {
-                    PickUp();
+                    string tag = hit.transform.tag;
+                    if (tag == "PickUpObject") PickUp(hit);
+                    if (tag == "Mango") TriggerInteract(hit);
+
                 }
             }
+
             if (interactAction.WasReleasedThisFrame())
             {
 
@@ -43,21 +48,23 @@ namespace Grupp14
             heldObject = null;
             isHoldingObject = false;
         }
-        void PickUp()
+        void PickUp(RaycastHit hit)
         {
-            RaycastHit hit;
-            if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1))
-            {
-                if (!hit.transform.CompareTag("PickUpObject")) return;
-                heldObject = hit.transform.gameObject;
-                heldObject.GetComponent<InteractTrigger>()?.TriggerEvent();
-                isHoldingObject = true;
+            TriggerInteract(hit);
 
-                heldObject.transform.parent = holdingPoint.transform;
-                heldObject.transform.position = holdingPoint.transform.position;
-                heldObject.GetComponent<Collider>().enabled = false;
-                heldObject.GetComponent<Rigidbody>().isKinematic = true;
-            }
+            heldObject = hit.transform.gameObject;
+            isHoldingObject = true;
+            heldObject.transform.parent = holdingPoint.transform;
+            heldObject.transform.position = holdingPoint.transform.position;
+            heldObject.GetComponent<Collider>().enabled = false;
+            heldObject.GetComponent<Rigidbody>().isKinematic = true;
+
+        }
+
+        void TriggerInteract(RaycastHit hit)
+        {
+            hit.transform.gameObject.GetComponent<InteractTrigger>()?.TriggerEvent();
+
         }
     }
 }

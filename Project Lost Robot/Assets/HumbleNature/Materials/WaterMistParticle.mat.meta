@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d0cac5b586ffc5541841ef1580df871c
+timeCreated: 1472635305
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 227566
+  packageName: Stylized Forest - Humble Nature
+  packageVersion: 1.3.2
+  assetPath: Assets/HumbleNature/Materials/WaterMistParticle.mat
+  uploadId: 611424

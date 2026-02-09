@@ -17,15 +17,16 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float maxJumpTime = 0.05f;
     [SerializeField] private float maximumFallingForce = -9f;
     [SerializeField] private float airHoveringForce = -3f;
-    [Tooltip("The height the player is set to when grounded")] [SerializeField] private float playerHoverAboveGroundHeight = 0.75f;
-    [Tooltip("The height the player is considered grounded")] [SerializeField] private float forceDownHeight = 1;
-    [Tooltip("The lowest height from the ground the player can still hover")] [SerializeField] private float lowestHoveringHeight = 2;
+    [Tooltip("The height the player is set to when grounded")][SerializeField] private float playerHoverAboveGroundHeight = 0.75f;
+    [Tooltip("The height the player is considered grounded")][SerializeField] private float forceDownHeight = 1;
+    [Tooltip("The lowest height from the ground the player can still hover")][SerializeField] private float lowestHoveringHeight = 2;
 
 
     private float gravityScaleDefault = 90f, timeHoldingJump, fixedDeltaTime;
     private bool isGrounded, isOnCooldown;
     private bool isHoldingJumpButton, toggledHover, isHoverAvailable;
     private PlayerMovement pM;
+    [NonSerialized] public bool isClimbing;
     [Header("Debug")]
     [SerializeField] private int frameRate = 120;
 
@@ -54,11 +55,11 @@ public class PlayerJump : MonoBehaviour
     {
         pM.isForced = false;
         fixedDeltaTime = Time.fixedDeltaTime;
+        if(isClimbing) return;
         if (!isGrounded && !isHoldingJumpButton) Gravity(gravityScaleDefault); // Simulates Gravity
         CheckGrounded();
         if (isHoldingJumpButton)
         {
-
             if (timeHoldingJump < maxJumpTime) // The jump force depending on hold
             {
                 rB.AddForce(new Vector3(0, JumpForce, 0), ForceMode.VelocityChange);
@@ -74,28 +75,7 @@ public class PlayerJump : MonoBehaviour
                 pM.ForcedMovement(Vector3.up);
                 pM.isForced = true;
             }
-            /* else if (!isGrounded && toggledHover && isHoverAvailable) // If holding trigger hover
-            {
-                gravityScaleActive = gravityScaleHover;
-                rB.AddForce(new Vector3(0, -gravityScaleActive, 0), ForceMode.Acceleration);        
-                // pM.ForcedMovement(Vector3.up);
-                pM.isForced = true;
-            }
-            else if (isGrounded)// if grounded again trigger a forced reset
-            {
-                isHoldingJumpButton = false;
-                gravityScaleActive = gravityScaleDefault;
-                if (!isOnCooldown) StartCoroutine(JumpCooldown());
-                pM.isForced = false;
-                toggledHover = false;
-            }*/
         }
-        /* else
-        {
-            gravityScaleActive = gravityScaleDefault;
-            pM.isForced = false;
-            toggledHover = false;
-        } */
     }
 
     private void Gravity(float gravityScale)
@@ -106,7 +86,6 @@ public class PlayerJump : MonoBehaviour
     {
         if (rB.linearVelocity.y != airHoveringForce) rB.AddForce(new Vector3(0, airHoveringForce - rB.linearVelocity.y, 0), ForceMode.VelocityChange);
     }
-
     private void CheckGrounded()
     {
         RaycastHit hit;

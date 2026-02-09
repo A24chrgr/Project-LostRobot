@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [Tooltip("Smoothing of starting and ending movement | (Recommend 0.2f)")][Range(0f, 1f)][SerializeField] float movementDampening; // 0.2f
     [SerializeField] float movementSpeed = 7f, rotationSpeed = 210f, hoverSpeed = 7f;
-
-
     private Vector3 inputDirection;
     private Vector3 redirectedNormalz;
     private Vector3 redirectedNormalx;
@@ -18,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rB;
     private Vector2 speedVector;
     [NonSerialized] public bool isForced;
+    [NonSerialized] public bool isClimbing;
     private float fixedDeltaTime;
 
     void Awake()
@@ -29,9 +27,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        fixedDeltaTime = Time.fixedDeltaTime;
+        if (isClimbing) { ClimbMovement(); return; }
         UpdateMovement();
         DelayedRotation();
-        fixedDeltaTime = Time.fixedDeltaTime;
     }
 
 
@@ -51,6 +50,28 @@ public class PlayerMovement : MonoBehaviour
             if (inputDirection.y != 0)
             {
                 speedVector.y = movementSpeed;
+            }
+        }
+    }
+    void ClimbMovement()
+    {
+        Vector3 movementLerped = Vector3.Lerp(rB.linearVelocity, (Vector3.right * 0 * speedVector.x) + (Vector3.up * inputDirection.y * speedVector.y), 0.2f);
+        rB.linearVelocity = movementLerped;
+
+        if ((inputDirection.x == 0 || !movementKeyIsHeld) && speedVector.x != 0)
+        {
+            speedVector.x = speedVector.x / 2;
+            if (speedVector.x < 0.05f)
+            {
+                speedVector.x = 0;
+            }
+        }
+        if ((inputDirection.y == 0 || !movementKeyIsHeld) && speedVector.y != 0)
+        {
+            speedVector.y = speedVector.y / 2;
+            if (speedVector.y < 0.05f)
+            {
+                speedVector.y = 0;
             }
         }
     }

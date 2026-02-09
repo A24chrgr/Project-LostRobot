@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -12,10 +13,31 @@ namespace Grupp14
         public int rows;
         public float tileSize = 1f;
         public bool showGizmos = true;
+        
+        private readonly Dictionary<Vector2Int, GridTile> tiles = new Dictionary<Vector2Int, GridTile>();
+        
+        private void Awake()
+        {
+            RebuildDictionary();
+        }
 
+        private void RebuildDictionary()
+        {
+            tiles.Clear();
+
+            var existingTiles = GetComponentsInChildren<GridTile>();
+
+            foreach (var tile in existingTiles)
+            {
+                tile.grid = this;
+                tiles[tile.gridPos] = tile;
+            }
+        }
+        
         public void GenerateGrid()
         {
             // delete old
+            tiles.Clear();
             for(int i = transform.childCount - 1; i >= 0; i--)
             {
                 DestroyImmediate(transform.GetChild(i).gameObject);
@@ -33,8 +55,19 @@ namespace Grupp14
                     GridTile tile = tileObj.AddComponent<GridTile>();
                     tile.gridPos = new Vector2Int(x,y);
                     tile.size = tileSize;
+                    
+                   //Add tile to the Dictionary.
+                   tiles.Add(tile.gridPos, tile);
                 }
             }
+        }
+
+        public GridTile GetTile(Vector2Int gridPos)
+        {
+           if(tiles.TryGetValue(gridPos, out GridTile tile)) 
+               return tile;
+           
+           return null;
         }
 
         public void GizmoVisibility(bool visible)

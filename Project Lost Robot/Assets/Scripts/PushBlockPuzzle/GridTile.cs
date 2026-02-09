@@ -14,9 +14,25 @@ namespace Grupp14
     {
         public Vector2Int gridPos;
         public TileType tileType;
+        public bool isStartTile;
+        public GameObject pushBlockPrefab;
         public float size;
         private bool drawGizmos = true;
         public bool DrawGizmos {set => drawGizmos = value;}
+
+        public CustomGrid grid;
+
+        private void Start()
+        {
+            grid = gameObject.GetComponentInParent<CustomGrid>();
+            
+            if (isStartTile)
+            {
+                var block = Instantiate(pushBlockPrefab, transform.parent);
+                block.transform.position += new Vector3(0, size * 0.5f, 0) + transform.localPosition;
+                block.GetComponent<PushBlock>().currentTile = this;
+            }
+        }
 
         private Color GetGizmoColor()
         {
@@ -38,7 +54,7 @@ namespace Grupp14
             {
                 Gizmos.color = GetGizmoColor();
                 Gizmos.DrawCube(
-                    new Vector3(transform.position.x, transform.position.y - size/2, transform.position.z), //Position
+                    new Vector3(transform.position.x, transform.position.y, transform.position.z), //Position
                     new Vector3(size * 0.9f, 0.1f, size * 0.9f) // Size
                 );
             }

@@ -1,19 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace Grupp14
+
+public class SceneLoaderScript : MonoBehaviour
 {
-    public class SceneLoaderScript : MonoBehaviour
-    {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
+    [SerializeField] private string previousScene, currentScene, nextScene;
+    
+    
+    public void LoadNextScene()
+    {
         
-        }
+        SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Single);
+        
+        
+        
     }
+
+
+
+
+
+
+
 }
+

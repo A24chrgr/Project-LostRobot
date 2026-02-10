@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         fixedDeltaTime = Time.fixedDeltaTime;
         if (isClimbing) { ClimbMovement(); return; }
         UpdateMovement();
-        DelayedRotation();
+        GroundRotation();
     }
 
 
@@ -132,10 +132,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    void DelayedRotation()
+
+    void GroundRotation()
     {
         if (!movementKeyIsHeld) return;
-        Vector3 currentForward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
+        Vector3 upVector = Vector3.up;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f)) { upVector = hit.normal; }
 
         Vector3 camForward = cameraObject.transform.forward;
         Vector3 camRight = cameraObject.transform.right;
@@ -150,9 +153,13 @@ public class PlayerMovement : MonoBehaviour
             camForward * inputDirection.y +
             camRight * inputDirection.x;
 
+        // Align movement with slope
+        targetDirection = Vector3.ProjectOnPlane(targetDirection, upVector).normalized;
+
         float radians = rotationSpeed * Mathf.Deg2Rad * fixedDeltaTime;
         Vector3 newForward =
-            Vector3.RotateTowards(currentForward, targetDirection, radians, 0f);
-        transform.rotation = Quaternion.LookRotation(newForward, Vector3.up);
+            Vector3.RotateTowards(transform.forward, targetDirection, radians, 0f
+        );
+        transform.rotation = Quaternion.LookRotation(newForward, upVector);
     }
 }

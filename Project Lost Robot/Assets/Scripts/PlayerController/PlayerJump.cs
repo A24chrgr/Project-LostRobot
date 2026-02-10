@@ -17,7 +17,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float maxJumpTime = 0.05f;
     [SerializeField] private float maximumFallingForce = -9f;
     [SerializeField] private float airHoveringForce = -3f;
-    [Tooltip("The height the player is set to when grounded")][SerializeField] private float playerHoverAboveGroundHeight = 0.75f;
+    [Tooltip("The height the player is set to when grounded")][SerializeField] public float playerHoverAboveGroundHeight = 0.75f;
     [Tooltip("The height the player is considered grounded")][SerializeField] private float forceDownHeight = 1;
     [Tooltip("The lowest height from the ground the player can still hover")][SerializeField] private float lowestHoveringHeight = 2;
 
@@ -26,7 +26,6 @@ public class PlayerJump : MonoBehaviour
     private bool isGrounded, isOnCooldown;
     private bool isHoldingJumpButton, toggledHover, isHoverAvailable;
     private PlayerMovement pM;
-    [NonSerialized] public bool isClimbing;
     [Header("Debug")]
     [SerializeField] private int frameRate = 120;
 
@@ -55,7 +54,6 @@ public class PlayerJump : MonoBehaviour
     {
         pM.isForced = false;
         fixedDeltaTime = Time.fixedDeltaTime;
-        if(isClimbing) return;
         if (!isGrounded && !isHoldingJumpButton) Gravity(gravityScaleDefault); // Simulates Gravity
         CheckGrounded();
         if (isHoldingJumpButton)
@@ -89,11 +87,11 @@ public class PlayerJump : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 15f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 15f))
         {
             if (hit.transform.CompareTag("Ground") && hit.distance <= forceDownHeight)
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+                Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
                 isGrounded = true;
             }
             else
@@ -122,9 +120,11 @@ public class PlayerJump : MonoBehaviour
     }
     private void LockToGround(RaycastHit hit)
     {
+        Vector3 downVector = Vector3.down;
+        // if(hit.distance <= forceDownHeight) downVector = -hit.normal.normalized;
         if (rB.linearVelocity.y == 0 && isGrounded && !isOnCooldown)
         {
-            transform.position = transform.position + Vector3.down * (hit.distance - playerHoverAboveGroundHeight);
+            transform.position = transform.position + downVector * (hit.distance - playerHoverAboveGroundHeight);
             rB.AddForce(new Vector3(0, -rB.linearVelocity.y, 0), ForceMode.VelocityChange);
         }
     }

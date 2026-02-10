@@ -2087,7 +2087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridPos: {x: 2, y: 1}
-  tileType: 0
+  tileType: 1
   isStartTile: 0
   size: 4
 --- !u!1 &1063752593
@@ -4127,7 +4127,7 @@ Transform:
   m_GameObject: {fileID: 4669336288943579995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.13, y: 0.48, z: -2.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

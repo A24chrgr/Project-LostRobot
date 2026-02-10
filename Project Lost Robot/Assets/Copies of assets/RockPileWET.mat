@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RockWall1 alt wer
+  m_Name: RockPileWET
   m_Shader: {fileID: -6465566751694194690, guid: 1510f7789bf0ea348abba59ae61f5706, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -100,8 +100,8 @@ Material:
     - Vector1_1496B9E: 1
     - Vector1_2C26F538: 0.579
     - Vector1_4BD452E9: 1
-    - Vector1_812118B2: 1.1
-    - Vector1_87498438: 0.347
+    - Vector1_812118B2: 0.39
+    - Vector1_87498438: 0.04
     - Vector1_87A990AD: 12.3
     - Vector1_940F1EE5: 1
     - Vector1_A1C292FC: 1.01

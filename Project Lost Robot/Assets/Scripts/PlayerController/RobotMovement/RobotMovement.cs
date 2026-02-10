@@ -21,6 +21,7 @@ public class RobotMovement : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        hoverHeight = transform.position.y;
     }
 
     void Update()
@@ -41,6 +42,10 @@ public class RobotMovement : MonoBehaviour
             else if (transform.position.y - info.point.y > hoverHeightTarget + 0.025f)
             {
                 hoverHeight -= hoverChangeSpeed * Time.deltaTime;
+            }
+            else
+            {
+                hoverHeight = transform.position.y;
             }
         }
         transform.position = new Vector3(transform.position.x, hoverHeight, transform.position.z);

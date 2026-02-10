@@ -5,7 +5,7 @@ public class EventOnEnterScript : MonoBehaviour
 
 {
     
-    public UnityEvent onEnterMango, onEnterRalos;
+    public UnityEvent onEnterMango, onEnterRalos, onEnterMidpoint;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Mango")) //should be mango & also now it senses the body child obj not parent...
@@ -18,6 +18,12 @@ public class EventOnEnterScript : MonoBehaviour
         {
             onEnterRalos.Invoke();
             Debug.Log("Ralos entered");
+        }
+        
+        if (other.gameObject.CompareTag("PlayersMidPoint")) //should be mango & also now it senses the body child obj not parent...
+        {
+            onEnterMidpoint.Invoke();
+            Debug.Log("midpoint entered");
         }
         
     }

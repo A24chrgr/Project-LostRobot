@@ -1440,6 +1440,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdefd9ec860058e488220b616d501b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &554129228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554129229}
+  - component: {fileID: 554129230}
+  m_Layer: 0
+  m_Name: HandlerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &554129229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554129228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1152774183}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &554129230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554129228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e52e34c1d8c5f449a33fc7b6721e963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPoint: {fileID: 484502802}
+  flipControllers: 0
 --- !u!1 &593822733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2101,7 @@ Transform:
   m_GameObject: {fileID: 779974887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6591582, y: 49.249332, z: 1.3994393}
+  m_LocalPosition: {x: -2.6591582, y: 4, z: 1.3994393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2719,6 +2765,7 @@ Transform:
   m_Children:
   - {fileID: 1545016919}
   - {fileID: 1724412571}
+  - {fileID: 554129229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166706632 stripped
@@ -3719,6 +3766,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 06618a0e-333b-47e5-9e0f-824ce3c8f4e6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172814188812785347, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8486103515200354672, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
       propertyPath: m_Name
       value: Animal
@@ -3726,6 +3781,10 @@ PrefabInstance:
     - target: {fileID: 8486103515200354672, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486103515200354672, guid: 7673f0f0a13e3d844a2ec6d9edfd9c14, type: 3}
+      propertyPath: m_TagString
+      value: Mango
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4686,11 +4745,11 @@ GameObject:
   - component: {fileID: 8133404269029768059}
   m_Layer: 0
   m_Name: Robot
-  m_TagString: Untagged
+  m_TagString: Ralos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4928003994947816680
 MonoBehaviour:
   m_ObjectHideFlags: 0

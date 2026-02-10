@@ -11,14 +11,31 @@ namespace Grupp14
     {
         public int columns;
         public int rows;
-        public float tileSize = 1f;
         public bool showGizmos = true;
+        public float size;
+        
+        [SerializeField] private PushBlock blockPrefab;
         
         private readonly Dictionary<Vector2Int, GridTile> tiles = new Dictionary<Vector2Int, GridTile>();
         
         private void Awake()
         {
             RebuildDictionary();
+            size = blockPrefab.size;
+        }
+
+        private void Start()
+        {
+            //Instantiate all blocks
+            foreach (var tile in tiles.Values)
+            {
+                if (tile.isStartTile)
+                {
+                    var block = Instantiate(blockPrefab, transform.position, Quaternion.identity);
+                    block.grid = this;
+                    block.gridPos = tile.gridPos;
+                }
+            }
         }
 
         private void RebuildDictionary()
@@ -29,7 +46,6 @@ namespace Grupp14
 
             foreach (var tile in existingTiles)
             {
-                tile.grid = this;
                 tiles[tile.gridPos] = tile;
             }
         }
@@ -50,11 +66,11 @@ namespace Grupp14
                 {
                     GameObject tileObj = new GameObject($"Tile_{x}_{y}");
                     tileObj.transform.parent = transform;
-                    tileObj.transform.localPosition = new Vector3(x * tileSize, 0, y * tileSize);
+                    tileObj.transform.localPosition = new Vector3(x * size, 0, y * size);
 
                     GridTile tile = tileObj.AddComponent<GridTile>();
                     tile.gridPos = new Vector2Int(x,y);
-                    tile.size = tileSize;
+                    tile.size = size;
                     
                    //Add tile to the Dictionary.
                    tiles.Add(tile.gridPos, tile);
@@ -62,6 +78,17 @@ namespace Grupp14
             }
         }
 
+        public GridTile CheckTile(Vector2Int currentPos, Vector2Int checkDir)
+        {
+            var newTile = GetTile(currentPos + checkDir);
+            if (newTile != null && newTile.tileType != TileType.Blocked)
+            {
+                return newTile;
+            }
+
+            return null;
+        }
+        
         public GridTile GetTile(Vector2Int gridPos)
         {
            if(tiles.TryGetValue(gridPos, out GridTile tile)) 

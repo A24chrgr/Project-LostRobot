@@ -1,27 +1,85 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Grupp14
 {
+    public enum blockState
+    {
+        moving,
+        stationary
+    }
+    
     public class PushBlock : MonoBehaviour
     {
-        [SerializeField] private float angleDeadZone = 10f;
         public float size;
-        public GridTile currentTile;
+        [SerializeField] private float angleDeadZone = 10f;
+        public CustomGrid grid;
+        public Vector2Int gridPos;
         private GameObject robot;
+        private blockState state = blockState.stationary;
+
+        private Vector3 oldPosition;
+        private Vector3 targetPosition;
+        private float lerp;
+        [SerializeField] private float lerpTime;
 
         private void Start()
         {
             robot = GameObject.Find("Robot");
+            transform.localScale = new Vector3(size, size, size);
+            transform.position = grid.GetTile(gridPos).transform.position + Vector3.up * size/2;
         }
 
         private void Update()
         {
-            transform.position = currentTile.transform.position + new Vector3(0f, size/2, 0f);
+            switch (state)
+            {
+                case blockState.stationary:
+                    break;
+                case blockState.moving:
+                    lerp += Time.deltaTime;
+                    transform.position = Vector3.Lerp(oldPosition, targetPosition, lerp/lerpTime);
+                    if (lerp / lerpTime >= 1f)
+                    {
+                        state = blockState.stationary;
+                        lerp = 0f;
+                    }
+                    break;
+            }
         }
 
+        private void TryMove(Vector2Int dir)
+        {
+            var newTile = grid.CheckTile(gridPos, dir);
+            if (newTile != null)
+            {
+                MoveTile(newTile);
+            }
+        }
+        
+        private void MoveTile(GridTile newTile)
+        {
+            //Tile Related
+            var currentTile = grid.GetTile(gridPos);
+            currentTile.tileType = TileType.Normal;
+            currentTile = newTile;
+            currentTile.tileType = TileType.Blocked;
+            gridPos = currentTile.gridPos;
+            
+            //Movement Related
+            state = blockState.moving;
+            oldPosition = transform.position;
+            targetPosition = currentTile.transform.position + new Vector3(0f, size/2, 0f);
+        }
+        
         public void Push()
         {
+            if (state != blockState.stationary)
+            {
+                return;
+            }
+            
             //1. Find out the direction to push by comparing the angle between the block and robot.
             var local = transform.InverseTransformPoint(robot.transform.position);
             var angleResult = Mathf.Atan2(local.x, local.z) * Mathf.Rad2Deg;
@@ -29,35 +87,19 @@ namespace Grupp14
             Debug.Log("Angle: " + angleResult);
             
             //2. Check the direction if there exists a grid tile there which it can move to and then either move/dont move the block.
-            if (angleResult > (-45 + angleDeadZone) && angleResult < (45 - angleDeadZone)) //Up
+            if (angleResult > (-45 + angleDeadZone) && angleResult < (45 - angleDeadZone))
             {
-                var upTile = currentTile.grid.GetTile(currentTile.gridPos + Vector2Int.down);
-                if (upTile != null && upTile.tileType != TileType.Blocked)
-                {
-                    currentTile = upTile;
-                }
+                TryMove(Vector2Int.down);
             }
-            else if (angleResult > (45 + angleDeadZone) && angleResult < (135 - angleDeadZone) ) //Right
+            else if (angleResult > (45 + angleDeadZone) && angleResult < (135 - angleDeadZone))
             {
-                var rightTile = currentTile.grid.GetTile(currentTile.gridPos + Vector2Int.left);
-                if (rightTile != null && rightTile.tileType != TileType.Blocked)
-                {
-                    currentTile = rightTile;
-                }
-            }  else if (angleResult < (-45 - angleDeadZone) && angleResult > (-135 + angleDeadZone)) //Left
+                TryMove(Vector2Int.left);
+            }  else if (angleResult < (-45 - angleDeadZone) && angleResult > (-135 + angleDeadZone))
             {
-                var leftTile = currentTile.grid.GetTile(currentTile.gridPos + Vector2Int.right);
-                if (leftTile != null && leftTile.tileType != TileType.Blocked)
-                {
-                    currentTile = leftTile;
-                }
-            } else if (angleResult > (135 + angleDeadZone) || angleResult < (-135 - angleDeadZone)) //Down
+                TryMove(Vector2Int.right);
+            } else if (angleResult > (135 + angleDeadZone) || angleResult < (-135 - angleDeadZone))
             {
-                var downTile = currentTile.grid.GetTile(currentTile.gridPos + Vector2Int.up);
-                if (downTile != null && downTile.tileType != TileType.Blocked)
-                {
-                    currentTile = downTile;
-                }
+                TryMove(Vector2Int.up);
             }
 
         }

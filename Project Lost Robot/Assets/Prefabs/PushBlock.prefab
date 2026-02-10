@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a6c6c2a9918fd47a1641495ec5e884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: 4
   angleDeadZone: 10
-  size: 3.5
-  currentTile: {fileID: 0}
+  grid: {fileID: 0}
+  gridPos: {x: 0, y: 0}
+  lerpTime: 1

@@ -415,11 +415,11 @@ MonoBehaviour:
   combatWaitTime: 3
   music01Reference:
     Guid:
-      Data1: 718814421
-      Data2: 1155492419
-      Data3: -1466352484
-      Data4: -2041837018
-    Path: event:/MainMenuMaybe
+      Data1: 1509820041
+      Data2: 1286563589
+      Data3: -617300815
+      Data4: -2108548751
+    Path: event:/Music/ForestMusic
   music02Reference:
     Guid:
       Data1: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   paramName: 
   paramValue: 0
   vcaPath: 
-  busPath: 
+  busPath: bus:/Music
   music:
     Guid:
       Data1: 0

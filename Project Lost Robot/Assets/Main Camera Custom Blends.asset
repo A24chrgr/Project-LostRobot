@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CustomBlends:
   - From: '**ANY CAMERA**'
-    To: FruitFollowCinematicCamera
+    To: DollyCamera
     Blend:
       Style: 0
       Time: 0

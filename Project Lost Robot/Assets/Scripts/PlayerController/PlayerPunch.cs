@@ -6,21 +6,23 @@ namespace Grupp14
     {
         public PlayerInput playerInput;
         private InputAction punchAction;
+        private PlayerPickUp ppU;
 
         void Awake()
         {
+            ppU = GetComponent<PlayerPickUp>();
             playerInput = GetComponent<PlayerInput>();
             punchAction = playerInput.actions.FindAction("Punch");
         }
         void Update()
         {
+            if (ppU.isHoldingObject || ppU.isHoldingMango) return;
             if (punchAction.WasPressedThisFrame())
             {
-                Punch();
             }
             if (punchAction.WasReleasedThisFrame())
             {
-                
+                Punch();
             }
         }
 

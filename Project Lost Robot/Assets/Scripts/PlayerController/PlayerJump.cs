@@ -10,7 +10,7 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody rB;
     public PlayerInput playerInput;
     private InputAction jumpAction;
-
+    [SerializeField] private LayerMask terrainLayer;
     [Header("Jump/Hover")]
     [SerializeField] private float JumpForce = 12f;
     [SerializeField] private float jumpTimeDelay = 0.1f;
@@ -87,9 +87,9 @@ public class PlayerJump : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 15f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 15f, terrainLayer.value))
         {
-            if (hit.transform.CompareTag("Ground") && hit.distance <= forceDownHeight)
+            if (hit.distance <= forceDownHeight)
             {
                 Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
                 isGrounded = true;

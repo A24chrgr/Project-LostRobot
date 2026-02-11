@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Grafik Test/Main Menu.unity
     guid: 7d21269ee00e90a47b0a7d14c5702127
   - enabled: 1
-    path: Assets/Scenes/OpeningYOLANDAmessup.unity
+    path: Assets/Scenes/1_OpeningV2.unity
     guid: 09e5f6dac14a3419a984ef90fc492899
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f2546233f18496e4683baa990a93c701, type: 3}

@@ -47,7 +47,7 @@ public class AudioTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayersMidPoint"))
         {
             MusicManager.instance.SetAudioSettings(audioSettings);
             Debug.Log("AudioTrigger enter");

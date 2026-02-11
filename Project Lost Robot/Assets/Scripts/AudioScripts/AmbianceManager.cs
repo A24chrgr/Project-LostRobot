@@ -55,7 +55,7 @@ namespace Grupp14
         {
             if (AmbianceEmitter.IsActive)
             {
-                AmbianceEmitter.EventInstance.setParameterByName(label, value);
+                AmbianceEmitter.SetParameter(label, value);
             }
         }
     }

@@ -7,6 +7,7 @@ namespace Grupp14
 {
     public class AmbianceParameterTrigger : MonoBehaviour
     {
+
         public enum Action // possible actions configurable in inspector
         {
             Play,
@@ -14,17 +15,13 @@ namespace Grupp14
             SetParameter
         }
 
-        public struct Parameters
-        {
-            public string parameterName;
-            public float parameterValue;
-        }
-        //[Header("Parameters to configure: AirborneAnimal, BranchCreak, InsectChittering, ShadowCar, ShadowSpeak, TreeSway, WindIntensity")]
+        [Tooltip("Parameters to configure: AirborneAnimal, BranchCreak, InsectChittering, ShadowCar, ShadowSpeak, TreeSway, WindIntensity. All use float values between 0.0f - 1.0f")]
         [Serializable]
         public struct AudioSettings // possible settings to configure in inspector
         {
             public Action action;
-            public Parameters parameterSettings;
+            public string parameterName;
+            public float parameterValue;
         }
 
         public AudioSettings[] triggerEnterSettings; // manually configure in inspector the settings
@@ -43,9 +40,9 @@ namespace Grupp14
                         case Action.Stop:
                             AmbianceManager.instance.StopAudio();
                             break;
-                        /*case Action.SetParameter:
-                            AmbianceManager.instance.SetParameter();
-                            break;*/
+                        case Action.SetParameter:
+                            AmbianceManager.instance.SetParameter(i.parameterName, i.parameterValue);
+                            break;
                     }
                 }
             }

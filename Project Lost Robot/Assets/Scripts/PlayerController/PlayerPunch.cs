@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace Grupp14
 {
     public class PlayerPunch : MonoBehaviour
     {
-        public PlayerInput playerInput;
+        [NonSerialized] public PlayerInput playerInput;
         private InputAction punchAction;
         private PlayerPickUp ppU;
 
@@ -32,9 +33,9 @@ namespace Grupp14
             RaycastHit hit;
             if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1))
             {
-                if (!hit.transform.CompareTag("Punchable")) return;
+                if (!hit.transform.GetComponent<PunchableData>()) return;
                 hitObject = hit.transform.gameObject;
-                hitObject.GetComponent<InteractTrigger>()?.TriggerEvent(gameObject.tag);
+                hitObject.GetComponent<InteractTrigger>()?.PunchEvent(gameObject.tag);
             }
         }
     }

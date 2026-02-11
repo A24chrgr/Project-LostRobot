@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +9,7 @@ namespace Grupp14
     {
         public bool isInClimbZone, isInExitZone;
         public bool isClimbing;
-        public PlayerInput playerInput;
+        [NonSerialized] public PlayerInput playerInput;
         private InputAction climbAction;
         private PlayerMovement pM;
         private PlayerJump pJ;

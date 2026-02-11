@@ -34,7 +34,7 @@ namespace Grupp14
             {
                 if (!hit.transform.CompareTag("Punchable")) return;
                 hitObject = hit.transform.gameObject;
-                hitObject.GetComponent<InteractTrigger>()?.TriggerEvent();
+                hitObject.GetComponent<InteractTrigger>()?.TriggerEvent(gameObject.tag);
             }
         }
     }

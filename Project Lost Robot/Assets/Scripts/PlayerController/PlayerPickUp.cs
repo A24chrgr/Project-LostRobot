@@ -34,9 +34,16 @@ namespace Grupp14
                 }
                 else if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1))
                 {
+                    GameObject hitObject = hit.transform.gameObject;
                     if (allowMangoPickup && hit.transform.gameObject.tag == "Mango") { MangoPickUp(hit); return; }
-                    if (hit.transform.gameObject.GetComponent<PickUpData>()) PickUp(hit);
-                    if (hit.transform.gameObject.GetComponent<InteractTrigger>()) hit.transform.gameObject.GetComponent<InteractTrigger>()?.TriggerEvent();
+                    if (hitObject.GetComponent<PickUpData>())
+                    {
+                        if (hitObject.GetComponent<PickUpData>().CheckIfAllowed(gameObject.tag))
+                        {
+                            PickUp(hit);
+                        }
+                    }
+                    if (hitObject.GetComponent<InteractTrigger>()) hitObject.GetComponent<InteractTrigger>()?.TriggerEvent(gameObject.tag);
                 }
             }
             if (interactAction.WasReleasedThisFrame())

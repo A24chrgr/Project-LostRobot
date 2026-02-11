@@ -6,7 +6,7 @@ public class IK_Foot_Solver : MonoBehaviour
 {
     //Serialized Variables
     [SerializeField] private float footSpacing;
-    [SerializeField] private Transform pelvis;
+    [SerializeField] private Transform hipJoint;
     [SerializeField] private LayerMask terrainLayer;
     [SerializeField] private float stepDistance;
     [SerializeField] private float lerpSpeed;
@@ -34,9 +34,11 @@ public class IK_Foot_Solver : MonoBehaviour
         {
             case Leg.Left:
                 transform.position -= Vector3.forward * stepDistance/4;
+                footSpacing *= -1;
                 break;
             case Leg.Right:
                 transform.position += Vector3.forward * stepDistance/4;
+                footSpacing *= 1;
                 break;
         }
         newPosition = transform.position;
@@ -46,10 +48,10 @@ public class IK_Foot_Solver : MonoBehaviour
     {
         if (movementScript.Moving) //Robot is moving
         {
-            Vector3 pelvisForward = pelvis.rotation * Vector3.forward;
-            Vector3 pelvisRight   = pelvis.rotation * Vector3.right;
+            Vector3 hipForward = hipJoint.rotation * Vector3.forward;
+            Vector3 hipRight   = hipJoint.rotation * Vector3.right;
 
-            Vector3 rayOrigin = pelvis.position + (-pelvisForward * stepDistance / 2) + (pelvisRight * footSpacing);
+            Vector3 rayOrigin = hipJoint.position + (hipForward * stepDistance / 2) + (hipRight * footSpacing);
             Ray ray = new Ray(rayOrigin, Vector3.down);
 
             if (Physics.Raycast(ray, out RaycastHit info, 10, terrainLayer.value))
@@ -94,10 +96,10 @@ public class IK_Foot_Solver : MonoBehaviour
         }
         else //Robot is standing still
         {
-            Vector3 pelvisForward = pelvis.rotation * Vector3.forward;
-            Vector3 pelvisRight   = pelvis.rotation * Vector3.right;
+            Vector3 hipForward = hipJoint.rotation * Vector3.forward;
+            Vector3 hipRight   = hipJoint.rotation * Vector3.right;
 
-            Vector3 rayOrigin = pelvis.position + (pelvisRight * footSpacing);
+            Vector3 rayOrigin = hipJoint.position + (hipRight * footSpacing);
             Ray ray = new Ray(rayOrigin, Vector3.down);
 
             if (Physics.Raycast(ray, out RaycastHit info, 10, terrainLayer.value))

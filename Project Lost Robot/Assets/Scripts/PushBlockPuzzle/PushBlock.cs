@@ -26,7 +26,7 @@ namespace Grupp14
 
         private void Start()
         {
-            robot = GameObject.Find("Robot");
+            robot = GameObject.FindWithTag("Ralos");
             transform.localScale = new Vector3(size, size, size);
             transform.position = grid.GetTile(gridPos).transform.position + Vector3.up * size/2;
         }

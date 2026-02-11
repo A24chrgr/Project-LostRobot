@@ -4,16 +4,16 @@ namespace Grupp14
 {
     public class PickUpData : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
+        [SerializeField] bool isAllowedAnimal = true, isAllowedRobot = true;
 
-        // Update is called once per frame
-        void Update()
+        public bool CheckIfAllowed(string sender)
         {
-        
+            if(sender == "Ralos" && !isAllowedRobot) return false;
+            else if(sender == "Mango" && !isAllowedAnimal) return false;
+            else
+            {
+                return true;
+            }
         }
     }
 }

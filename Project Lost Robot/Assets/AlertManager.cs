@@ -17,8 +17,7 @@ namespace Grupp14
 
         private bool fadeIn = false;
         private bool fadeOut = false;
-
-        [SerializeField] private float alertAnimationSpeed = 1f;
+        
         [SerializeField] private float alertYOffset = 75f;
         [SerializeField] private AnimationCurve easeCurve;
         [SerializeField] private float fadeDuration = 0.5f;

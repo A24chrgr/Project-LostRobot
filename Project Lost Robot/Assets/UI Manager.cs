@@ -22,6 +22,12 @@ namespace Grupp14
 
         private void Start()
         {
+            //Subscribing to Events
+            alertManager.onAlertStarted.AddListener(OnAlertStarted);
+            alertManager.onAlertEnded.AddListener(OnAlertEnded);
+            directiveManager.DirectiveComplete.AddListener(OnDirectiveComplete);
+            directiveManager.SubDirectiveComplete.AddListener(OnSubDirectiveComplete);
+            
             currentDirectiveIndex = directiveManager.currentDirectiveIndex;
             currentSubDirectiveIndex = directiveManager.currentSubDirectiveIndex;
             
@@ -58,8 +64,20 @@ namespace Grupp14
                 duration = alertManager.subDirectiveAlertDuration
             });
         }
+
+        private void OnAlertStarted()
+        {
+            AlertBoxTitle.text = alertManager.CurrentAlert.title;
+            AlertBoxDescription.text = alertManager.CurrentAlert.message;
+        }
         
-        public void OnDirectiveComplete()
+        private void OnAlertEnded()
+        {
+            AlertBoxTitle.text = "";
+            AlertBoxDescription.text = "";
+        }
+        
+        private void OnDirectiveComplete()
         {
             currentDirectiveIndex++;
             currentSubDirectiveIndex = 0;
@@ -73,7 +91,7 @@ namespace Grupp14
             }
         }
 
-        public void OnSubDirectiveComplete()
+        private void OnSubDirectiveComplete()
         {
             currentSubDirectiveIndex++;
             if (currentSubDirectiveIndex < directiveManager.directives[currentDirectiveIndex].subDirectives.Count)

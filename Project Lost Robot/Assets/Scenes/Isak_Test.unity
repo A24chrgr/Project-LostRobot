@@ -2332,12 +2332,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1644591054878201149, guid: b3a83305be387954896fd13b4160bb26, type: 3}
   m_PrefabInstance: {fileID: 6582779315323740009}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1337495627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7782083726165838502, guid: 173487d7ce8b8ca4b86d23e489a343d8, type: 3}
+  m_PrefabInstance: {fileID: 4180371800721782192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1337495628 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7708068774905191413, guid: 173487d7ce8b8ca4b86d23e489a343d8, type: 3}
   m_PrefabInstance: {fileID: 4180371800721782192}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1337495627}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f488bec59ded8014aacf8974104b861c, type: 3}
@@ -5190,6 +5195,22 @@ PrefabInstance:
     - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
       propertyPath: easeCurve.m_Curve.Array.data[0].outWeight
       value: 0.03971813
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: onAlertStarted.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: onAlertStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: onAlertStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1337495627}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: onAlertStarted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3141530613375946039, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
       propertyPath: m_LocalPosition.x

@@ -5163,6 +5163,34 @@ PrefabInstance:
       propertyPath: alertBox
       value: 
       objectReference: {fileID: 1541073264}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: easeCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: easeCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: easeCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: easeCurve.m_Curve.Array.data[0].inSlope
+      value: 2.7575269
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: easeCurve.m_Curve.Array.data[0].outSlope
+      value: 2.7575269
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
+      propertyPath: easeCurve.m_Curve.Array.data[0].outWeight
+      value: 0.03971813
+      objectReference: {fileID: 0}
     - target: {fileID: 3141530613375946039, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

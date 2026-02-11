@@ -11,7 +11,7 @@ namespace Grupp14
         [SerializeField] GameObject playerHoldingPoint;
         [SerializeField] bool allowMangoPickup;
 
-        public PlayerInput playerInput;
+        [NonSerialized] public PlayerInput playerInput;
         private InputAction interactAction;
 
         void Awake()
@@ -43,7 +43,11 @@ namespace Grupp14
                             PickUp(hit);
                         }
                     }
-                    if (hitObject.GetComponent<InteractTrigger>()) hitObject.GetComponent<InteractTrigger>()?.TriggerEvent(gameObject.tag);
+                    else
+                    {
+                        if (hitObject.GetComponent<InteractTrigger>()) hitObject.GetComponent<InteractTrigger>()?.InteractEvent(gameObject.tag);
+                    }
+                    hitObject = null;
                 }
             }
             if (interactAction.WasReleasedThisFrame())
@@ -66,6 +70,8 @@ namespace Grupp14
             heldObject.transform.position = itemHoldingPoint.transform.position;
             heldObject.GetComponent<Collider>().enabled = false;
             heldObject.GetComponent<Rigidbody>().isKinematic = true;
+            if (heldObject.GetComponent<InteractTrigger>()) heldObject.GetComponent<InteractTrigger>()?.PickUpEvent(gameObject.tag);
+
         }
 
         void MangoPickUp(RaycastHit hit)

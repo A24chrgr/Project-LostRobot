@@ -8,7 +8,7 @@ public class PlayerJump : MonoBehaviour
 {
 
     private Rigidbody rB;
-    public PlayerInput playerInput;
+    [NonSerialized] public PlayerInput playerInput;
     private InputAction jumpAction;
     [SerializeField] private LayerMask terrainLayer;
     [Header("Jump/Hover")]

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 namespace Grupp14
 {
-    [RequireComponent(typeof(InteractTrigger))]
     public class PlayerPunch : MonoBehaviour
     {
         [NonSerialized] public PlayerInput playerInput;

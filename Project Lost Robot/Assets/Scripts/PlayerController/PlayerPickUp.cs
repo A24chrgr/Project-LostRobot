@@ -1,12 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace Grupp14
 {
     public class PlayerPickUp : MonoBehaviour
     {
-        private bool isHoldingObject;
-        private GameObject heldObject;
-        [SerializeField] GameObject holdingPoint;
+        [NonSerialized] public bool isHoldingObject, isHoldingMango;
+        [NonSerialized] public GameObject heldObject;
+        [SerializeField] GameObject itemHoldingPoint;
+        [SerializeField] GameObject playerHoldingPoint;
+        [SerializeField] bool allowMangoPickup;
 
         public PlayerInput playerInput;
         private InputAction interactAction;
@@ -21,25 +24,25 @@ namespace Grupp14
             RaycastHit hit;
             if (interactAction.WasPressedThisFrame())
             {
-                if (isHoldingObject)
+                if (isHoldingMango)
+                {
+                    DropMango();
+                }
+                else if (isHoldingObject)
                 {
                     Drop();
                 }
                 else if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1))
                 {
-                    string tag = hit.transform.tag;
-                    if (tag == "PickUpObject") PickUp(hit);
-                    if (tag == "Mango") TriggerInteract(hit);
-
+                    if (allowMangoPickup && hit.transform.gameObject.tag == "Mango") { MangoPickUp(hit); return; }
+                    if (hit.transform.gameObject.GetComponent<PickUpData>()) PickUp(hit);
+                    if (hit.transform.gameObject.GetComponent<InteractTrigger>()) hit.transform.gameObject.GetComponent<InteractTrigger>()?.TriggerEvent();
                 }
             }
-
             if (interactAction.WasReleasedThisFrame())
             {
-
             }
         }
-
         void Drop()
         {
             heldObject.transform.parent = null;
@@ -50,21 +53,40 @@ namespace Grupp14
         }
         void PickUp(RaycastHit hit)
         {
-            TriggerInteract(hit);
-
             heldObject = hit.transform.gameObject;
             isHoldingObject = true;
-            heldObject.transform.parent = holdingPoint.transform;
-            heldObject.transform.position = holdingPoint.transform.position;
+            heldObject.transform.parent = itemHoldingPoint.transform;
+            heldObject.transform.position = itemHoldingPoint.transform.position;
             heldObject.GetComponent<Collider>().enabled = false;
             heldObject.GetComponent<Rigidbody>().isKinematic = true;
-
         }
 
-        void TriggerInteract(RaycastHit hit)
+        void MangoPickUp(RaycastHit hit)
         {
-            hit.transform.gameObject.GetComponent<InteractTrigger>()?.TriggerEvent();
-
+            heldObject = hit.transform.gameObject;
+            heldObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            heldObject.GetComponent<MangoHeld>().isHeld = true;
+            heldObject.GetComponent<MangoHeld>().ppU = this;
+            isHoldingMango = true;
+            heldObject.transform.parent = playerHoldingPoint.transform;
+            heldObject.transform.position = playerHoldingPoint.transform.position;
+            heldObject.GetComponent<PlayerMovement>().enabled = false;
+            heldObject.GetComponent<PlayerJump>().enabled = false;
+            heldObject.GetComponent<PlayerClimb>().enabled = false;
+            heldObject.GetComponent<PlayerPickUp>().Drop();
+            heldObject.GetComponent<PlayerPickUp>().enabled = false;
+        }
+        public void DropMango()
+        {
+            heldObject.transform.parent = null;
+            heldObject.GetComponent<PlayerMovement>().enabled = true;
+            heldObject.GetComponent<PlayerJump>().enabled = true;
+            heldObject.GetComponent<PlayerClimb>().enabled = true;
+            heldObject.GetComponent<PlayerPickUp>().enabled = true;
+            heldObject.GetComponent<MangoHeld>().isHeld = false;
+            heldObject.GetComponent<MangoHeld>().ppU = null;
+            heldObject = null;
+            isHoldingMango = false;
         }
     }
 }

@@ -4900,7 +4900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousScene: 
   currentScene: 
-  nextScene: StoryDeadRobotV2
+  nextScene: 3_CaveWithDeadRobot
 --- !u!54 &114077413
 Rigidbody:
   m_ObjectHideFlags: 0

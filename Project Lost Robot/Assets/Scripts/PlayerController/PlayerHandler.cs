@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using System;
 
 namespace Grupp14
 {
@@ -8,27 +9,23 @@ namespace Grupp14
     {
         private GameObject player1, player2;
         [SerializeField] private PlayersMidPoint mPoint;
-        [SerializeField] private bool flipControllers;
-        private int p1Value = 0, p2Value = 1;
 
         void Awake()
         {
             GetPlayerObjects();
             SetControllers();
+            if(player1 == null) SetmPoint(player2);
+            if(player2 == null) SetmPoint(player1);
             SetmPoint(player1, player2);
         }
         void Update()
         {
-/*             if (flipControllers)
-            {
-                FlipControllers();
-                flipControllers = false;
-            } */
         }
         void GetPlayerObjects()
         {
             player1 = GameObject.FindGameObjectWithTag("Ralos");
             player2 = GameObject.FindGameObjectWithTag("Mango");
+            if(player1 == null && player2 == null) throw new Exception("No player objects found with the tag 'Ralos' or 'Mango'");
         }
 
         void SetControllers()
@@ -36,7 +33,7 @@ namespace Grupp14
             if (Gamepad.all.ToArray().Length == 1)
             {
                 Debug.LogWarning("1 controller connected, defaulting player 2 to keyboard & mouse");
-                player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[p1Value % 2]);
+                player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[0]);
                 player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Keyboard&Mouse", Keyboard.current, Mouse.current);
             }
             else if (Gamepad.all.ToArray().Length == 0)
@@ -47,17 +44,11 @@ namespace Grupp14
             }
             else
             {
-                player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[p1Value % 2]);
-                player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[p2Value % 2]);
-                // p1Value++;
-                // p2Value++;
+                player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[0]);
+                player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[1]);
             }
 
         }
-/*         void FlipControllers()
-        {
-            SetControllers();
-        } */
         void SetmPoint(GameObject slot1, GameObject slot2)
         {
             mPoint.player1Transform = slot1.transform;

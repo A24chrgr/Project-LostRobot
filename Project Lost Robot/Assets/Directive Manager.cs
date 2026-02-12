@@ -6,11 +6,13 @@ namespace Grupp14
 {
     public class DirectiveManager : MonoBehaviour
     {
-        public int currentDirectiveIndex;
-        public int currentSubDirectiveIndex;
         public List<Directive> directives;
-        public UnityEvent DirectiveComplete = new UnityEvent();
-        public UnityEvent SubDirectiveComplete = new UnityEvent();
+        
+        [HideInInspector] public int currentDirectiveIndex;
+        [HideInInspector] public int currentSubDirectiveIndex;
+        
+        [HideInInspector] public UnityEvent DirectiveComplete = new UnityEvent();
+        [HideInInspector] public UnityEvent SubDirectiveComplete = new UnityEvent();
         
         void Start()
         {

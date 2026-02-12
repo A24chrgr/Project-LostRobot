@@ -392,7 +392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1166739776}
-  - component: {fileID: 1166739775}
+  - component: {fileID: 1166739777}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -400,7 +400,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1166739775
+--- !u!4 &1166739776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166739774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1166739777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,11 +430,11 @@ MonoBehaviour:
   combatWaitTime: 3
   music01Reference:
     Guid:
-      Data1: 1509820041
-      Data2: 1286563589
-      Data3: -617300815
-      Data4: -2108548751
-    Path: event:/Music/ForestMusic
+      Data1: -2009030531
+      Data2: 1315543953
+      Data3: -137307252
+      Data4: -1635988274
+    Path: event:/Music/DarkerRA105Theme
   music02Reference:
     Guid:
       Data1: 0
@@ -444,7 +459,7 @@ MonoBehaviour:
   paramName: 
   paramValue: 0
   vcaPath: 
-  busPath: bus:/Music
+  busPath: 
   music:
     Guid:
       Data1: 0
@@ -452,21 +467,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
---- !u!4 &1166739776
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166739774}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

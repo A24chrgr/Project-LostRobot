@@ -7,21 +7,34 @@ namespace Grupp14
 {
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] private DirectiveManager directiveManager;
         private int currentDirectiveIndex, currentSubDirectiveIndex;
         
-        [SerializeField] private AlertManager alertManager;
+        //Managers
+        private DirectiveManager directiveManager;
+        private AlertManager alertManager;
         
         //Canvas GameObjects
-        [SerializeField] private TextMeshProUGUI AlertBoxTitle;
-        [SerializeField] private TextMeshProUGUI AlertBoxDescription;
-        [SerializeField] private TextMeshProUGUI DirectiveName;
-        [SerializeField] private TextMeshProUGUI DirectiveDescription;
-        [SerializeField] private TextMeshProUGUI SubDirectiveName;
-        [SerializeField] private TextMeshProUGUI SubDirectiveDescription;
+        private TextMeshProUGUI AlertBoxTitle;
+        private TextMeshProUGUI AlertBoxDescription;
+        private TextMeshProUGUI DirectiveName;
+        private TextMeshProUGUI DirectiveDescription;
+        private TextMeshProUGUI SubDirectiveName;
+        private TextMeshProUGUI SubDirectiveDescription;
 
         private void Start()
         {
+            //Finding GameObjects
+            AlertBoxTitle = GameObject.Find("AlertBoxTitle").GetComponent<TextMeshProUGUI>();
+            AlertBoxDescription = GameObject.Find("AlertBoxDescription").GetComponent<TextMeshProUGUI>();
+            DirectiveName = GameObject.Find("DirectiveName").GetComponent<TextMeshProUGUI>();
+            DirectiveDescription = GameObject.Find("DirectiveDescription").GetComponent<TextMeshProUGUI>();
+            SubDirectiveName = GameObject.Find("SubDirectiveName").GetComponent<TextMeshProUGUI>();
+            SubDirectiveDescription = GameObject.Find("SubDirectiveDescription").GetComponent<TextMeshProUGUI>();
+            
+            //Finding Managers
+            alertManager = GameObject.Find("AlertManager").GetComponent<AlertManager>();
+            directiveManager = GameObject.Find("DirectiveManager").GetComponent<DirectiveManager>();
+            
             //Subscribing to Events
             alertManager.onAlertStarted.AddListener(OnAlertStarted);
             alertManager.onAlertEnded.AddListener(OnAlertEnded);

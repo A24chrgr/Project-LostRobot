@@ -2,24 +2,47 @@ using System;
 using System.Net;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Linq;
 
 public class RobotMovement : MonoBehaviour
 {
     [Header("Gameplay Related")]
-    [SerializeField] LayerMask groundLayerMask;
+    [Tooltip("Degrees/s")] [SerializeField] private float rotationSpeed;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float hoverHeightTarget;
     [SerializeField] private float hoverChangeSpeed;
-    [Tooltip("Degrees/s")] [SerializeField] private float rotationSpeed;
-    private bool moving;
+    [SerializeField] LayerMask groundLayerMask;
+    
+    [Header("Leg Animation Related")]
+    public float footSpacing;
+    public float stepDistance;
+    public float lerpSpeed;
+    public float stepHeight;
+    public float footHeightOffset;
+    
     public bool Moving { get => moving; }
+    public Vector3 InputDirection { get => inputDirection; }
+    
+    private bool moving;
     private float hoverHeight;
     private Vector3 inputDirection;
-    public Vector3 InputDirection { get => inputDirection; }
     private GameObject mainCamera;
+    private List<IK_Foot_Solver> legs;
 
     private void Start()
     {
+        legs = GetComponentsInChildren<IK_Foot_Solver>().ToList();
+        
+        foreach (IK_Foot_Solver leg in legs)
+        {
+            leg.footSpacing = footSpacing;
+            leg.stepDistance = stepDistance;
+            leg.lerpSpeed = lerpSpeed;
+            leg.stepHeight = stepHeight;
+            leg.footHeightOffset = footHeightOffset;
+        }
+        
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         hoverHeight = transform.position.y;
     }
@@ -92,6 +115,20 @@ public class RobotMovement : MonoBehaviour
         {
             moving = true;
             inputDirection = context.ReadValue<Vector2>().normalized;
+        }
+    }
+
+    private void OnValidate()
+    {
+        legs = GetComponentsInChildren<IK_Foot_Solver>().ToList();
+        
+        foreach (IK_Foot_Solver leg in legs)
+        {
+            leg.footSpacing = footSpacing;
+            leg.stepDistance = stepDistance;
+            leg.lerpSpeed = lerpSpeed;
+            leg.stepHeight = stepHeight;
+            leg.footHeightOffset = footHeightOffset;
         }
     }
 }

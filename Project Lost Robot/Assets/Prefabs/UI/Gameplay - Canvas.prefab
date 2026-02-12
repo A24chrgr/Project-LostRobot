@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 497324601071230047}
   - component: {fileID: 367576715161013994}
   m_Layer: 5
-  m_Name: Description
+  m_Name: DirectiveDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 4892555271536528236}
   - component: {fileID: 2493474381146514907}
   m_Layer: 5
-  m_Name: Alert Box
+  m_Name: AlertBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 9057439217856473165}
   - component: {fileID: 3615425131798947334}
   m_Layer: 5
-  m_Name: Description
+  m_Name: AlertBoxDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 7167816474500559762}
   - component: {fileID: 4935212195891298399}
   m_Layer: 5
-  m_Name: Directive
+  m_Name: DirectiveName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 5372545576298519557}
   - component: {fileID: 8375106658294477070}
   m_Layer: 5
-  m_Name: Description
+  m_Name: SubDirectiveDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 2467196265935931720}
   - component: {fileID: 7160805855531851860}
   m_Layer: 5
-  m_Name: Sub-Directive
+  m_Name: SubDirectiveName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1337,7 +1337,7 @@ GameObject:
   - component: {fileID: 6418604028176709837}
   - component: {fileID: 2615472829492896733}
   m_Layer: 5
-  m_Name: Alert
+  m_Name: AlertBoxTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

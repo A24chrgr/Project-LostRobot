@@ -2,7 +2,6 @@ using FMOD.Studio;
 using FMODUnity;
 using System;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 namespace Grupp14
 {

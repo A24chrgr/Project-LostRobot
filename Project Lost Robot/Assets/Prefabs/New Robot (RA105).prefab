@@ -2266,6 +2266,7 @@ GameObject:
   - component: {fileID: 2499551838670389654}
   - component: {fileID: 315963526061865066}
   - component: {fileID: 540305339822718608}
+  - component: {fileID: -8628421460700145989}
   m_Layer: 0
   m_Name: New Robot (RA105)
   m_TagString: Ralos
@@ -2444,6 +2445,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 42df303e-dbea-4a07-90c8-36101249baf1
     m_ActionName: Player1/TestCinematicENd
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5dcc6fd2-5b6b-48de-bfd4-1ba37461a62c
+    m_ActionName: 'Player1/ScanObject[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
@@ -2630,6 +2635,21 @@ MonoBehaviour:
   itemHoldingPoint: {fileID: 8800375928423731791}
   playerHoldingPoint: {fileID: 1017751473705669916}
   allowMangoPickup: 1
+--- !u!114 &-8628421460700145989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172028289931026755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1299e6464cfe841b59e22634003717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8432926288560427497
 GameObject:
   m_ObjectHideFlags: 0

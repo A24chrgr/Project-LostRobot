@@ -21,7 +21,6 @@ namespace Grupp14
         private void Awake()
         {
             RebuildDictionary();
-            size = blockPrefab.size;
         }
 
         private void Start()
@@ -47,6 +46,8 @@ namespace Grupp14
             foreach (var tile in existingTiles)
             {
                 tiles[tile.gridPos] = tile;
+                tile.size = size;
+                tile.transform.localPosition = new Vector3(tile.gridPos.x * size, 0, tile.gridPos.y * size);
             }
         }
         
@@ -115,7 +116,13 @@ namespace Grupp14
 
         private void OnValidate()
         {
+            RebuildDictionary();
             GizmoVisibility(showGizmos);
+            foreach (GridTile tile in tiles.Values)
+            {
+                tile.size = size;
+                tile.transform.localPosition = new Vector3(tile.gridPos.x * size, 0, tile.gridPos.y * size);
+            }
         }
     }
 }

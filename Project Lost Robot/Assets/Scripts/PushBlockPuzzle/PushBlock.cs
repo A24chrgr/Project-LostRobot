@@ -18,6 +18,7 @@ namespace Grupp14
         public Vector2Int gridPos;
         private GameObject robot;
         private blockState state = blockState.stationary;
+        public float sizeRatio = 3.5f / 1.3182f;
 
         private Vector3 oldPosition;
         private Vector3 targetPosition;
@@ -27,8 +28,8 @@ namespace Grupp14
         private void Start()
         {
             robot = GameObject.FindWithTag("Ralos");
-            transform.localScale = new Vector3(size, size, size);
-            transform.position = grid.GetTile(gridPos).transform.position + Vector3.up * size/2;
+            transform.localScale = new Vector3(grid.size / sizeRatio, grid.size / sizeRatio, grid.size / sizeRatio);
+            transform.position = grid.GetTile(gridPos).transform.position + Vector3.up * grid.size / sizeRatio;
         }
 
         private void Update()
@@ -70,7 +71,7 @@ namespace Grupp14
             //Movement Related
             state = blockState.moving;
             oldPosition = transform.position;
-            targetPosition = currentTile.transform.position + new Vector3(0f, size/2, 0f);
+            targetPosition = currentTile.transform.position + new Vector3(0f, grid.size / sizeRatio, 0f);
         }
         
         public void Push()

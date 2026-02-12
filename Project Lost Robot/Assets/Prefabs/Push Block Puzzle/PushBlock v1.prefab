@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1130344010883918333}
   - component: {fileID: 4206203824673118446}
   m_Layer: 6
-  m_Name: PushBlock
+  m_Name: PushBlock v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

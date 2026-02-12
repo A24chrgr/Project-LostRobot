@@ -48,4 +48,4 @@ MonoBehaviour:
   rows: 5
   showGizmos: 1
   size: 4
-  blockPrefab: {fileID: 1130344010883918333, guid: 7c44851c72ca8cf449315cade05406b3, type: 3}
+  blockPrefab: {fileID: 2508089294594496513, guid: 82072ffc43469dc43a7f93a5170c4c1e, type: 3}

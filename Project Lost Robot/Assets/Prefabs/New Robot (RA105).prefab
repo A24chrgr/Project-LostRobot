@@ -1679,16 +1679,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footSpacing: 0.3
+  stepDistance: 0.6
+  lerpSpeed: 2
+  stepHeight: 0.33
+  footHeightOffset: 0.3
   hipJoint: {fileID: 798562053673506076}
   terrainLayer:
     serializedVersion: 2
     m_Bits: 64
-  stepDistance: 0.6
-  lerpSpeed: 2
-  stepHeight: 0.33
   otherLeg: {fileID: 7264986485256243064}
   thisLeg: 0
-  footHeightOffset: 0.3
   movementScript: {fileID: 1552634124922077385}
   isGrounded: 0
 --- !u!1 &5570668814156546006
@@ -2013,16 +2013,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footSpacing: 0.3
+  stepDistance: 0.6
+  lerpSpeed: 2
+  stepHeight: 0.33
+  footHeightOffset: 0.3
   hipJoint: {fileID: 798562053673506076}
   terrainLayer:
     serializedVersion: 2
     m_Bits: 64
-  stepDistance: 0.6
-  lerpSpeed: 2
-  stepHeight: 0.33
   otherLeg: {fileID: 8998029282547479683}
   thisLeg: 1
-  footHeightOffset: 0.3
   movementScript: {fileID: 1552634124922077385}
   isGrounded: 0
 --- !u!1 &6754502668537610009
@@ -2571,13 +2571,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6561850b8ff7539499fd5a81de3d51e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  rotationSpeed: 360
   movementSpeed: 1
   hoverHeightTarget: 0.2
   hoverChangeSpeed: 2
-  rotationSpeed: 360
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  footSpacing: 0.3
+  stepDistance: 0.6
+  lerpSpeed: 2
+  stepHeight: 0.33
+  footHeightOffset: 0.3
 --- !u!114 &2499551838670389654
 MonoBehaviour:
   m_ObjectHideFlags: 0

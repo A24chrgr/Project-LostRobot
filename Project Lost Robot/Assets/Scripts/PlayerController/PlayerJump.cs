@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerJump : MonoBehaviour
 {
 
+    private Animator anim;
     private Rigidbody rB;
     [NonSerialized] public PlayerInput playerInput;
     private InputAction jumpAction;
@@ -31,6 +32,7 @@ public class PlayerJump : MonoBehaviour
 
     void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
         rB = GetComponent<Rigidbody>();
         pM = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
@@ -60,15 +62,20 @@ public class PlayerJump : MonoBehaviour
         {
             if (timeHoldingJump < maxJumpTime) // The jump force depending on hold
             {
+                anim.SetBool("isJumping", true);
                 rB.AddForce(new Vector3(0, JumpForce, 0), ForceMode.VelocityChange);
                 timeHoldingJump += fixedDeltaTime;
             }
             else if (!toggledHover && timeHoldingJump >= maxJumpTime && !isGrounded)
             {
+                anim.SetBool("isJumping", false);
+                anim.SetBool("isHovering", false);
                 Gravity(gravityScaleDefault);
             }
             else if (!isGrounded && toggledHover && isHoverAvailable) // If holding trigger hover
             {
+                anim.SetBool("isJumping", false);
+                anim.SetBool("isHovering", true);
                 GravityHover();
                 pM.ForcedMovement(Vector3.up);
                 pM.isForced = true;
@@ -97,6 +104,10 @@ public class PlayerJump : MonoBehaviour
             else
             {
                 isGrounded = false;
+                anim.SetBool("isJumping", false);
+                anim.SetBool("isGrounded", false);
+                anim.SetBool("isHovering", false);
+
             }
             CheckIfHoverIsAvailable(hit);
             LockToGround(hit);
@@ -104,6 +115,9 @@ public class PlayerJump : MonoBehaviour
         else
         {
             isGrounded = false;
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isGrounded", false);
+            anim.SetBool("isHovering", false);
         }
     }
     private void CheckIfHoverIsAvailable(RaycastHit hit)
@@ -126,6 +140,7 @@ public class PlayerJump : MonoBehaviour
         {
             transform.position = transform.position + downVector * (hit.distance - playerHoverAboveGroundHeight);
             rB.AddForce(new Vector3(0, -rB.linearVelocity.y, 0), ForceMode.VelocityChange);
+            anim.SetBool("isGrounded", true);
         }
     }
     private IEnumerator JumpCooldown()

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask terrainLayer;
+    private Animator anim;
     [Header("Movement")]
     [Tooltip("Smoothing of starting and ending movement | (Recommend 0.2f)")][Range(0f, 1f)][SerializeField] float movementDampening; // 0.2f
     [SerializeField] float movementSpeed = 7f, rotationSpeed = 210f, hoverSpeed = 7f;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         speedVector.x = movementSpeed;
         speedVector.y = movementSpeed;
         rB = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
         cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
     }
     void FixedUpdate()
@@ -37,10 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.canceled) { movementKeyIsHeld = false; /* Gamepad.current.SetMotorSpeeds(0, 0); */ return; }
+        if (context.canceled) { movementKeyIsHeld = false; anim.SetBool("isMoving", false); /* Gamepad.current.SetMotorSpeeds(0, 0); */ return; }
         else
         {
             // Gamepad.current.SetMotorSpeeds(0.05f, 0.1f);
+            anim.SetBool("isMoving", true);
             movementKeyIsHeld = true;
             inputDirection = context.ReadValue<Vector2>().normalized;
 

@@ -44,19 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0a33b243d312c4d9f4808d65836e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directives:
+  - name: 'Retrieve Blackbox Data from RA103 '
+    description: 
+    subDirectives:
+    - name: Scan local faunal specimen
+      description: 
+    - name: Scan local floral specimen
+      description: 
   currentDirectiveIndex: 0
   currentSubDirectiveIndex: 0
-  directives:
-  - name: Reach The City
-    description: Explore and find a way to the forgotten city of the forgotten world.
-    subDirectives:
-    - name: Scan Blueberry
-      description: Explore the forest and scna a sample of blueberry.
-  - name: Find The Plains
-    description: Explore the city and find a way to reach the Plains.
-    subDirectives:
-    - name: Scan Murals
-      description: Scan ancient murals on city walls left by the earlier civilizatiob.
   DirectiveComplete:
     m_PersistentCalls:
       m_Calls:

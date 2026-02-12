@@ -6,7 +6,7 @@ namespace Grupp14
 {
     public class InteractTrigger : MonoBehaviour
     {
-        public UnityEvent interactEvent, pickUpEvent, punchEvent;
+        public UnityEvent interactEvent, pickUpEvent, punchEvent, scanEvent;
         [SerializeField] bool isAllowedAnimal = true, isAllowedRobot = true;
 
         void Start()
@@ -17,6 +17,8 @@ namespace Grupp14
                 pickUpEvent = new UnityEvent();
             if (punchEvent == null)
                 punchEvent = new UnityEvent();
+            if (scanEvent == null)
+                scanEvent = new UnityEvent();
         }
 
         public void InteractEvent(string sender)
@@ -49,6 +51,16 @@ namespace Grupp14
                 Debug.LogWarning("PunchEvent sent from " + sender + " is not a valid player");
             }
             punchEvent.Invoke();
+        }
+        public void ScanEvent(string sender)
+        {
+            if (sender == "Ralos" && !isAllowedRobot) { return; }
+            else if (sender == "Mango" && !isAllowedAnimal) { return; }
+            else if (sender != "Ralos" && sender != "Mango")
+            {
+                Debug.LogWarning("ScanEvent sent from " + sender + " is not a valid player");
+            }
+            scanEvent.Invoke();
         }
     }
 }

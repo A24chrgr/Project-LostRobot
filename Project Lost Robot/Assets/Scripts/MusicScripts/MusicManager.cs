@@ -7,7 +7,7 @@ using FMOD.Studio;
 using UnityEngine.Serialization;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
-public class MusicManager : MonoBehaviour
+ public class MusicManager : MonoBehaviour
 //  Bools så att inte låten som spelas startar om när man går igenom AudioTrigger
 // V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V
 {

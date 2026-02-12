@@ -5,6 +5,7 @@ namespace Grupp14
 {
     public class PlayerPunch : MonoBehaviour
     {
+        [SerializeField] private LayerMask interactableLayer;
         [NonSerialized] public PlayerInput playerInput;
         private InputAction punchAction;
         private PlayerPickUp ppU;
@@ -31,11 +32,18 @@ namespace Grupp14
         {
             GameObject hitObject;
             RaycastHit hit;
-            if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1))
+            foreach (Collider col in Physics.OverlapSphere(transform.position, 1f, interactableLayer.value))
+            {
+                if (!col.gameObject.GetComponent<PunchableData>()) continue;
+                col.gameObject.GetComponent<InteractTrigger>()?.PunchEvent(gameObject.tag);
+                continue;
+            }
+            if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1, interactableLayer.value))
             {
                 if (!hit.transform.GetComponent<PunchableData>()) return;
                 hitObject = hit.transform.gameObject;
                 hitObject.GetComponent<InteractTrigger>()?.PunchEvent(gameObject.tag);
+
             }
         }
     }

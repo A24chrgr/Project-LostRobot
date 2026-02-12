@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "name": "DevInputs",
+    "maps": [
+        {
+            "name": "Dev",
+            "id": "913f0932-a3b1-49d2-abac-a056de896145",
+            "actions": [
+                {
+                    "name": "Toggle Debug",
+                    "type": "Button",
+                    "id": "914ec7b3-81c0-4088-885e-2c516ec3b81d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "de362692-39ca-45b2-8246-a794d82ffc59",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Toggle Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

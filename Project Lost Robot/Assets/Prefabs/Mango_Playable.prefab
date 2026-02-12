@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6077324571818895016}
   - component: {fileID: 5546829493968379363}
   - component: {fileID: 3666973182490277308}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5278137014790317852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 2274873167114059774}
   - component: {fileID: 6809323400952422008}
   - component: {fileID: 6543465821012316822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 5069304249548357854}
   - component: {fileID: 7775679082846348164}
   - component: {fileID: 4388466749133288371}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 8374377508282381835}
   - component: {fileID: 2568788626068054243}
   - component: {fileID: 9059982317615277368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2299408658370342697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 4054404482647121671}
   - component: {fileID: 5012028348348649209}
   - component: {fileID: 4774961192638085199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mango_Playable
   m_TagString: Mango
   m_Icon: {fileID: 0}
@@ -649,6 +649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9ac31fafa15dc47ad06608722a3941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 128
   movementDampening: 0.2
   movementSpeed: 7
   rotationSpeed: 720
@@ -665,7 +668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e2756ab4249304e815c2038ee68bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 2655864265920275087}
   terrainLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -690,10 +692,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67607f9a77e0933478a6d4846f740f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  heldObject: {fileID: 0}
   itemHoldingPoint: {fileID: 6845849374012595054}
   playerHoldingPoint: {fileID: 6845849374012595054}
   allowMangoPickup: 0
-  playerInput: {fileID: 2655864265920275087}
 --- !u!114 &5012028348348649209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +714,6 @@ MonoBehaviour:
   isInClimbZone: 0
   isInExitZone: 0
   isClimbing: 0
-  playerInput: {fileID: 0}
 --- !u!114 &4774961192638085199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +738,7 @@ GameObject:
   - component: {fileID: 3119537518666522048}
   - component: {fileID: 5576828114430153513}
   - component: {fileID: 1415414665926868618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3227803017104218115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HoldObjectPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +855,7 @@ GameObject:
   - component: {fileID: 1793306813736238348}
   - component: {fileID: 7473648318930448663}
   - component: {fileID: 770142057530303769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +941,7 @@ GameObject:
   - component: {fileID: 3423201042959142322}
   - component: {fileID: 413232891971056583}
   - component: {fileID: 1579525456585669402}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,7 +1027,7 @@ GameObject:
   - component: {fileID: 2813825339324098053}
   - component: {fileID: 1734408427024073220}
   - component: {fileID: 3332995679924232682}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,9 +1166,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6345285779419725671, guid: 060954160a713a24dafc19434f209503, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 060954160a713a24dafc19434f209503, type: 3}
       propertyPath: m_Name
       value: Mango_Placeholder_Mesh__Standing_
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 060954160a713a24dafc19434f209503, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

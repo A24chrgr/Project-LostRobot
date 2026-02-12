@@ -1,10 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Grupp14
 {
+    [RequireComponent(typeof(ScanableData))]
     public class MissionObject : MonoBehaviour
     {
+        public UnityEvent onScanned;
+        
         private AlertManager alertManager;
 
         [SerializeField] private string alertTitle;
@@ -13,10 +17,13 @@ namespace Grupp14
         
         private void Start()
         {
+            //Subscribe to Event
+            GetComponent<InteractTrigger>().scanEvent.AddListener(Scanned);
+            
             alertManager = GameObject.Find("AlertManager").GetComponent<AlertManager>();
         }
 
-        public void onAnalyzed()
+        public void Scanned()
         {
             alertManager.alertQueue.Enqueue(new Alert()
             {

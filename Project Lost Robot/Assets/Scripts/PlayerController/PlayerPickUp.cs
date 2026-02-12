@@ -5,8 +5,9 @@ namespace Grupp14
 {
     public class PlayerPickUp : MonoBehaviour
     {
+        [SerializeField] private LayerMask interactableLayer;
         [NonSerialized] public bool isHoldingObject, isHoldingMango;
-        [NonSerialized] public GameObject heldObject;
+        /* [NonSerialized] */ public GameObject heldObject;
         [SerializeField] GameObject itemHoldingPoint;
         [SerializeField] GameObject playerHoldingPoint;
         [SerializeField] bool allowMangoPickup;
@@ -27,33 +28,41 @@ namespace Grupp14
                 if (isHoldingMango)
                 {
                     DropMango();
+                    return;
                 }
                 else if (isHoldingObject)
                 {
                     Drop();
+                    return;
                 }
-                else if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1))
+                if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1, interactableLayer.value))
                 {
                     GameObject hitObject = hit.transform.gameObject;
                     if (allowMangoPickup && hit.transform.gameObject.tag == "Mango") { MangoPickUp(hit); return; }
-                    if (hitObject.GetComponent<PickUpData>())
-                    {
-                        if (hitObject.GetComponent<PickUpData>().CheckIfAllowed(gameObject.tag))
-                        {
-                            PickUp(hit);
-                        }
-                    }
-                    else
-                    {
-                        if (hitObject.GetComponent<InteractTrigger>()) hitObject.GetComponent<InteractTrigger>()?.InteractEvent(gameObject.tag);
-                    }
-                    hitObject = null;
+                    CheckForPickUp(hitObject);
+                }
+                foreach (Collider col in Physics.OverlapSphere(transform.position, 1f, interactableLayer.value))
+                {
+                    CheckForPickUp(col.gameObject);
                 }
             }
-            if (interactAction.WasReleasedThisFrame())
+        }
+
+        private void CheckForPickUp(GameObject hitObject)
+        {
+            if (hitObject.GetComponent<PickUpData>())
             {
+                if (hitObject.GetComponent<PickUpData>().CheckIfAllowed(gameObject.tag))
+                {
+                    PickUp(hitObject);
+                }
+            }
+            else
+            {
+                if (hitObject.GetComponent<InteractTrigger>()) hitObject.GetComponent<InteractTrigger>()?.InteractEvent(gameObject.tag);
             }
         }
+
         void Drop()
         {
             heldObject.transform.parent = null;
@@ -62,15 +71,15 @@ namespace Grupp14
             heldObject = null;
             isHoldingObject = false;
         }
-        void PickUp(RaycastHit hit)
+        void PickUp(GameObject currentObject)
         {
-            heldObject = hit.transform.gameObject;
+            heldObject = currentObject;
             isHoldingObject = true;
-            heldObject.transform.parent = itemHoldingPoint.transform;
-            heldObject.transform.position = itemHoldingPoint.transform.position;
-            heldObject.GetComponent<Collider>().enabled = false;
-            heldObject.GetComponent<Rigidbody>().isKinematic = true;
-            if (heldObject.GetComponent<InteractTrigger>()) heldObject.GetComponent<InteractTrigger>()?.PickUpEvent(gameObject.tag);
+            currentObject.transform.parent = itemHoldingPoint.transform;
+            currentObject.transform.position = itemHoldingPoint.transform.position;
+            currentObject.GetComponent<Collider>().enabled = false;
+            currentObject.GetComponent<Rigidbody>().isKinematic = true;
+            if (currentObject.GetComponent<InteractTrigger>()) currentObject.GetComponent<InteractTrigger>()?.PickUpEvent(gameObject.tag);
 
         }
 

@@ -18,11 +18,6 @@ namespace Grupp14
         {
             
         }
-        
-        void Update()
-        {
-        
-        }
     }
     
     [System.Serializable]
@@ -39,5 +34,6 @@ namespace Grupp14
     {
         [SerializeField] public string name;
         [SerializeField] public string description;
+        [SerializeField] private MissionObject missionObject;
     }
 }

@@ -2577,7 +2577,7 @@ MonoBehaviour:
   movementSpeed: 1
   hoverHeightTarget: 0.2
   hoverChangeSpeed: 2
-  rotationSpeed: 90
+  rotationSpeed: 360
 --- !u!114 &2499551838670389654
 MonoBehaviour:
   m_ObjectHideFlags: 0

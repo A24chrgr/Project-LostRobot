@@ -54,6 +54,8 @@ public class RobotMovement : MonoBehaviour
 
     private void UpdateMovement()
     {
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        
         //Step 1. Update Hover Height,
         Ray ray = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit info, 10f, groundLayerMask))

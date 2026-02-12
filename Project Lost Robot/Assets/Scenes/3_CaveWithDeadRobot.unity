@@ -3495,11 +3495,11 @@ MonoBehaviour:
   combatWaitTime: 3
   music01Reference:
     Guid:
-      Data1: 718814421
-      Data2: 1155492419
-      Data3: -1466352484
-      Data4: -2041837018
-    Path: event:/Music/MainMenuMaybe
+      Data1: 1964307665
+      Data2: 1322183127
+      Data3: -965756488
+      Data4: 359189666
+    Path: event:/Music/Placeholder
   music02Reference:
     Guid:
       Data1: 718814421

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private LayerMask terrainLayer;
     [Header("Movement")]
     [Tooltip("Smoothing of starting and ending movement | (Recommend 0.2f)")][Range(0f, 1f)][SerializeField] float movementDampening; // 0.2f
     [SerializeField] float movementSpeed = 7f, rotationSpeed = 210f, hoverSpeed = 7f;
@@ -138,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         if (!movementKeyIsHeld) return;
         Vector3 upVector = Vector3.up;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f)) { upVector = hit.normal; }
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f, terrainLayer.value)) { upVector = hit.normal; }
 
         Vector3 camForward = cameraObject.transform.forward;
         Vector3 camRight = cameraObject.transform.right;

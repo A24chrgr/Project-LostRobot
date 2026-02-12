@@ -137,6 +137,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  punchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isAllowedAnimal: 1
+  isAllowedRobot: 1
 --- !u!114 &1130344010883918333
 MonoBehaviour:
   m_ObjectHideFlags: 0

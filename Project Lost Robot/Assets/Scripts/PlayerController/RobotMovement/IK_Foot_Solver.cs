@@ -5,15 +5,16 @@ using UnityEngine.Rendering.Universal;
 public class IK_Foot_Solver : MonoBehaviour
 {
     //Serialized Variables
-    [SerializeField] private float footSpacing;
+    [HideInInspector] public float footSpacing;
+    [HideInInspector] public float stepDistance;
+    [HideInInspector] public float lerpSpeed;
+    [HideInInspector] public float stepHeight;
+    [HideInInspector] public float footHeightOffset;
+    
     [SerializeField] private Transform hipJoint;
     [SerializeField] private LayerMask terrainLayer;
-    [SerializeField] private float stepDistance;
-    [SerializeField] private float lerpSpeed;
-    [SerializeField] private float stepHeight;
     [SerializeField] private IK_Foot_Solver otherLeg;
     [SerializeField] private Leg thisLeg;
-    [SerializeField] private float footHeightOffset;
     [SerializeField] private RobotMovement movementScript;
     
     //Other Variables
@@ -21,6 +22,7 @@ public class IK_Foot_Solver : MonoBehaviour
     private Vector3 oldPosition;
     public bool isGrounded;
     private float lerp;
+    private int footSpacingSign;
     
     private enum Leg
     {
@@ -34,11 +36,11 @@ public class IK_Foot_Solver : MonoBehaviour
         {
             case Leg.Left:
                 transform.position -= Vector3.forward * stepDistance/4;
-                footSpacing *= -1;
+                footSpacingSign = -1;
                 break;
             case Leg.Right:
                 transform.position += Vector3.forward * stepDistance/4;
-                footSpacing *= 1;
+                footSpacingSign = 1;
                 break;
         }
         newPosition = transform.position;
@@ -51,7 +53,7 @@ public class IK_Foot_Solver : MonoBehaviour
             Vector3 hipForward = hipJoint.rotation * Vector3.forward;
             Vector3 hipRight   = hipJoint.rotation * Vector3.right;
 
-            Vector3 rayOrigin = hipJoint.position + (hipForward * stepDistance / 2) + (hipRight * footSpacing);
+            Vector3 rayOrigin = hipJoint.position + (hipForward * stepDistance / 2) + (hipRight * (footSpacing * footSpacingSign));
             Ray ray = new Ray(rayOrigin, Vector3.down);
 
             if (Physics.Raycast(ray, out RaycastHit info, 10, terrainLayer.value))
@@ -99,7 +101,7 @@ public class IK_Foot_Solver : MonoBehaviour
             Vector3 hipForward = hipJoint.rotation * Vector3.forward;
             Vector3 hipRight   = hipJoint.rotation * Vector3.right;
 
-            Vector3 rayOrigin = hipJoint.position + (hipRight * footSpacing);
+            Vector3 rayOrigin = hipJoint.position + (hipRight * (footSpacing * footSpacingSign));
             Ray ray = new Ray(rayOrigin, Vector3.down);
 
             if (Physics.Raycast(ray, out RaycastHit info, 10, terrainLayer.value))

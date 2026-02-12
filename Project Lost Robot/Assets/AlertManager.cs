@@ -6,7 +6,7 @@ namespace Grupp14
 {
     public class AlertManager : MonoBehaviour
     {
-        [SerializeField] private GameObject alertBox;
+        private GameObject alertBox;
         private RectTransform alertBoxRect;
 
         public float directiveAlertDuration = 5f;
@@ -26,13 +26,16 @@ namespace Grupp14
         private float startY;
         private float targetY;
 
-        public UnityEvent onAlertStarted;
-        public UnityEvent onAlertEnded;
+        [HideInInspector] public UnityEvent onAlertStarted;
+        [HideInInspector] public UnityEvent onAlertEnded;
 
         public Queue<Alert> alertQueue = new Queue<Alert>();
 
         void Start()
         {
+            //Finding GameObjects
+            alertBox = GameObject.Find("AlertBox");
+            
             alertBoxRect = alertBox.GetComponent<RectTransform>();
             alertBoxRect.anchoredPosition = new Vector2(0, alertBoxRect.sizeDelta.y);
         }

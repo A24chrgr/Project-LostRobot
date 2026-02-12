@@ -30,11 +30,11 @@ namespace Grupp14
         {
             GameObject hitObject;
             RaycastHit hit;
-            foreach (Collider col in Physics.OverlapSphere(transform.position, 1f, interactableLayer))
+            foreach (Collider col in Physics.OverlapSphere(transform.position, 1f, interactableLayer.value))
             {
-                if (!col.gameObject.GetComponent<ScanableData>()) return;
+                if (!col.gameObject.GetComponent<ScanableData>()) continue;
                 col.gameObject.GetComponent<InteractTrigger>()?.ScanEvent(gameObject.tag);
-                return;
+                continue;
             }
             if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1, interactableLayer.value))
             {

@@ -59,4 +59,13 @@ public class AudioTrigger : MonoBehaviour
         
         
     }
+
+    public void ToggleMusic()
+    {
+        MusicManager.instance.SetAudioSettings(audioSettings);
+        
+        
+    }
+    
+    
 }

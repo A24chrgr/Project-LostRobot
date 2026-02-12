@@ -5198,7 +5198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
       propertyPath: onAlertStarted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2372845807318806029, guid: 026b4e7e09f50e34e98de5bd830be5b2, type: 3}
       propertyPath: onAlertStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5421,13 +5421,61 @@ PrefabInstance:
       value: DirectiveManager
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].name
+      value: Find The Plains
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[0].description
+      value: Explore and find a way to the forgotten city of the forgotten world.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].description
+      value: Explore the city and find a way to reach the Plains.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].subDirectives.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].subDirectives.Array.data[0].name
+      value: Scan Murals
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].subDirectives.Array.data[1].name
+      value: Scan Murals
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].subDirectives.Array.data[2].name
+      value: Scan Murals
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].subDirectives.Array.data[0].description
+      value: Scan ancient murals on city walls left by the earlier civilizatiob.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].subDirectives.Array.data[1].description
+      value: Scan ancient murals on city walls left by the earlier civilizatiob.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[2].subDirectives.Array.data[2].description
+      value: Scan ancient murals on city walls left by the earlier civilizatiob.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: DirectiveComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1337495628}
+      objectReference: {fileID: 1337495627}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: SubDirectiveComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1337495628}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: DirectiveComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4465741532909723287, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

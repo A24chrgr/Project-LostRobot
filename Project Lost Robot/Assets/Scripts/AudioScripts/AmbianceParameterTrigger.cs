@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using static Grupp14.AmbianceParameterTrigger;
-using static UnityEditor.FilePathAttribute;
 
 namespace Grupp14
 {

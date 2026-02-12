@@ -43,6 +43,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ScanObject",
+                    "type": "Button",
+                    "id": "5dcc6fd2-5b6b-48de-bfd4-1ba37461a62c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "TestCinematic",
                     "type": "Button",
                     "id": "6fcd8759-e0d1-4791-8c19-f839fbfab073",
@@ -279,6 +288,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "TestCinematicENd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db6dfcb7-7e42-4ea7-9fe3-4ef22c8ce91e",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "ScanObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "783c2727-9c2f-4d3a-8c63-9f388151ea2a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ScanObject",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -5297,7 +5297,6 @@ GameObject:
   - component: {fileID: 1063928488}
   - component: {fileID: 1063928487}
   - component: {fileID: 1063928486}
-  - component: {fileID: 1063928489}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -5419,7 +5418,7 @@ MonoBehaviour:
   itemId: 0
   blockName: CaveRobot_AL
   description: 
-  eventHandler: {fileID: 1063928489}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1063928485}
   - {fileID: 1063928488}
@@ -5594,21 +5593,6 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
---- !u!114 &1063928489
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063928477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 1063928482}
-  suppressBlockAutoSelect: 0
-  waitForFrames: 1
 --- !u!1001 &1064972828
 PrefabInstance:
   m_ObjectHideFlags: 0

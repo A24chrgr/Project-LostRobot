@@ -1,49 +1,46 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 namespace Grupp14
 {
-    public class PlayerPunch : MonoBehaviour
+    public class PlayerScan : MonoBehaviour
     {
         [SerializeField] private LayerMask interactableLayer;
         [NonSerialized] public PlayerInput playerInput;
-        private InputAction punchAction;
-        private PlayerPickUp ppU;
+        private InputAction scanAction;
 
         void Awake()
         {
-            ppU = GetComponent<PlayerPickUp>();
             playerInput = GetComponent<PlayerInput>();
-            punchAction = playerInput.actions.FindAction("Punch");
+            scanAction = playerInput.actions.FindAction("ScanObject");
         }
         void Update()
         {
-            if (ppU.isHoldingObject || ppU.isHoldingMango) return;
-            if (punchAction.WasPressedThisFrame())
+            if (scanAction.WasPressedThisFrame())
             {
+                Scan();
             }
-            if (punchAction.WasReleasedThisFrame())
+            if (scanAction.WasReleasedThisFrame())
             {
-                Punch();
             }
         }
 
-        void Punch()
+        void Scan()
         {
             GameObject hitObject;
             RaycastHit hit;
             foreach (Collider col in Physics.OverlapSphere(transform.position, 1f, interactableLayer.value))
             {
-                if (!col.gameObject.GetComponent<PunchableData>()) continue;
-                col.gameObject.GetComponent<InteractTrigger>()?.PunchEvent(gameObject.tag);
+                if (!col.gameObject.GetComponent<ScanableData>()) continue;
+                col.gameObject.GetComponent<InteractTrigger>()?.ScanEvent(gameObject.tag);
                 continue;
             }
             if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, 1, interactableLayer.value))
             {
-                if (!hit.transform.GetComponent<PunchableData>()) return;
+                if (!hit.transform.GetComponent<ScanableData>()) return;
                 hitObject = hit.transform.gameObject;
-                hitObject.GetComponent<InteractTrigger>()?.PunchEvent(gameObject.tag);
-
+                hitObject.GetComponent<InteractTrigger>()?.ScanEvent(gameObject.tag);
             }
         }
     }

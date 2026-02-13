@@ -6,7 +6,7 @@ namespace Grupp14
     {
         public Animator animator;
         public string boolName = "myBool";
-        public void SetBool(bool value)
+        public void SetBoolInAnimator(bool value)
         {
             animator.SetBool(boolName, value);
         }

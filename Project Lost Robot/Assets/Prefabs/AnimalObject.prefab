@@ -95,7 +95,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dde38bada0edd0948a785f3a818a754b, type: 2}
+  - {fileID: 2100000, guid: cd2dd559b9109644e85768d896c28676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,7 +181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dde38bada0edd0948a785f3a818a754b, type: 2}
+  - {fileID: 2100000, guid: cd2dd559b9109644e85768d896c28676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,7 +348,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dde38bada0edd0948a785f3a818a754b, type: 2}
+  - {fileID: 2100000, guid: cd2dd559b9109644e85768d896c28676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -523,7 +523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dde38bada0edd0948a785f3a818a754b, type: 2}
+  - {fileID: 2100000, guid: cd2dd559b9109644e85768d896c28676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -632,7 +632,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dde38bada0edd0948a785f3a818a754b, type: 2}
+  - {fileID: 2100000, guid: cd2dd559b9109644e85768d896c28676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -753,7 +753,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dde38bada0edd0948a785f3a818a754b, type: 2}
+  - {fileID: 2100000, guid: cd2dd559b9109644e85768d896c28676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -839,7 +839,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dde38bada0edd0948a785f3a818a754b, type: 2}
+  - {fileID: 2100000, guid: cd2dd559b9109644e85768d896c28676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1079,6 +1079,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9ac31fafa15dc47ad06608722a3941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 0
   movementDampening: 0.2
   movementSpeed: 7
   rotationSpeed: 720
@@ -1095,7 +1098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e2756ab4249304e815c2038ee68bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 8172814188812785347}
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 0
   JumpForce: 7
   jumpTimeDelay: 0.1
   maxJumpTime: 0.05
@@ -1117,5 +1122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67607f9a77e0933478a6d4846f740f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdingPoint: {fileID: 1330695126620859801}
-  playerInput: {fileID: 8172814188812785347}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  heldObject: {fileID: 0}
+  itemHoldingPoint: {fileID: 0}
+  playerHoldingPoint: {fileID: 0}
+  allowMangoPickup: 0

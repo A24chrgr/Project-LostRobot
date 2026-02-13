@@ -81,7 +81,6 @@ namespace Grupp14
                 else
                 {
                     currentAlert.duration -= Time.deltaTime;
-                    Debug.Log("Duration left: " + currentAlert.duration);
 
                     if (currentAlert.duration <= 0)
                     {

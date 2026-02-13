@@ -45,13 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directives:
-  - name: 'Retrieve Blackbox Data from RA103 '
-    description: 
+  - name: First Directive
+    description: This is the first directive.
     subDirectives:
-    - name: Scan local faunal specimen
-      description: 
-    - name: Scan local floral specimen
-      description: 
+    - name: First Sub Directive
+      description: This is the first sub directive.
+      missionObject: {fileID: 0}
+      SubDirectiveComplete:
+        m_PersistentCalls:
+          m_Calls: []
+    DirectiveComplete:
+      m_PersistentCalls:
+        m_Calls: []
   currentDirectiveIndex: 0
   currentSubDirectiveIndex: 0
   DirectiveComplete:

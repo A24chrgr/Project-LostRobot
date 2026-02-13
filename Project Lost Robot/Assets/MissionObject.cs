@@ -25,6 +25,11 @@ namespace Grupp14
 
         public void Scanned()
         {
+            onScanned?.Invoke();
+        }
+
+        public void queueAlert()
+        {
             alertManager.alertQueue.Enqueue(new Alert()
             {
                 title = alertTitle,

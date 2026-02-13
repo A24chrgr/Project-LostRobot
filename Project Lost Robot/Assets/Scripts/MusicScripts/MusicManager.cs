@@ -63,7 +63,7 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
     // Gör så att bara en instans existerar samtidigt. gör även så att scriptet når att gå från andra scripts.
     private void Awake()
     {
-        if (instance != null && instance != this)
+        /*if (instance != null && instance != this)
         {
             Destroy(obj: this);
         }
@@ -71,11 +71,18 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
         {
             instance = this;
             DontDestroyOnLoad(target:this);
-        }
-        
-      
+        }*/
+        instance = this;
     }
-	//IN COMBAT?--v-v-v-v---------------------------------------------
+
+    private void OnDestroy()
+    {
+        music01Instance.stop(STOP_MODE.IMMEDIATE);
+        music02Instance.stop(STOP_MODE.IMMEDIATE);
+        musicBossInstance.stop(STOP_MODE.IMMEDIATE);
+    }
+
+    //IN COMBAT?--v-v-v-v---------------------------------------------
     // Combat script som styr en parameter automatiskt ifall man är i combat med vanliga enemies och inte Grenadier
     public void Combat()
     {

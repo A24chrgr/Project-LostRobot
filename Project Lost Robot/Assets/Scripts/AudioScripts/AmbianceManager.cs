@@ -35,6 +35,7 @@ namespace Grupp14
             if (!AmbianceEmitter.IsActive) // makes sure the emitter isnt playing before executing PlayAudio()
             {
                 AmbianceEmitter.Play();
+                Debug.Log("Audio Played");
             }
             else
             {
@@ -52,10 +53,8 @@ namespace Grupp14
 
         public void SetParameter(string label, float value)
         {
-            if (AmbianceEmitter.IsActive)
-            {
                 AmbianceEmitter.SetParameter(label, value);
-            }
+            Debug.Log("Parameter changed");
         }
     }
 }

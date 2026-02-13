@@ -27,9 +27,10 @@ namespace Grupp14
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Ralos"))
             {
-                foreach(AudioSettings i in triggerEnterSettings)
+                Debug.Log("Player in trigger");
+                foreach (AudioSettings i in triggerEnterSettings)
                 {
                     switch (i.action)
                     {

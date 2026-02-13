@@ -49321,43 +49321,43 @@ MonoBehaviour:
   combatWaitTime: 3
   music01Reference:
     Guid:
-      Data1: 1610504014
-      Data2: 1166599456
-      Data3: -953638492
-      Data4: -244351566
-    Path: event:/Music/ForestTheme
+      Data1: -1001199821
+      Data2: 1276620262
+      Data3: -1109335903
+      Data4: 2075268541
+    Path: event:/Music/RA105Theme
   music02Reference:
     Guid:
-      Data1: 718814421
-      Data2: 1155492419
-      Data3: -1466352484
-      Data4: -2041837018
-    Path: event:/Music/MainMenuMaybe
+      Data1: -2009030531
+      Data2: 1315543953
+      Data3: -137307252
+      Data4: -1635988274
+    Path: event:/Music/DarkerRA105Theme
   musicBossReference:
     Guid:
-      Data1: 1509820041
-      Data2: 1286563589
-      Data3: -617300815
-      Data4: -2108548751
-    Path: event:/Music/ForestMusic
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   stingerGameOverReference:
     Guid:
-      Data1: 1509820041
-      Data2: 1286563589
-      Data3: -617300815
-      Data4: -2108548751
-    Path: event:/Music/ForestMusic
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   paramName: 
   paramValue: 0
   vcaPath: 
   busPath: 
   music:
     Guid:
-      Data1: 1509820041
-      Data2: 1286563589
-      Data3: -617300815
-      Data4: -2108548751
-    Path: event:/Music/ForestMusic
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &866676012
 Transform:
   m_ObjectHideFlags: 0
@@ -110525,7 +110525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1900922352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110539,30 +110539,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSettings:
-  - destroyAfterUse: 0
+  - destroyAfterUse: 1
     emitter: {fileID: 0}
     GameObject: {fileID: 866676010}
     mainMusicEventReference:
       Guid:
-        Data1: 718814421
-        Data2: 1155492419
-        Data3: -1466352484
-        Data4: -2041837018
-      Path: event:/Music/MainMenuMaybe
-    audioAction: 4
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    audioAction: 2
     parameter: 
     targetValue: 0
-  - destroyAfterUse: 0
+  - destroyAfterUse: 1
     emitter: {fileID: 0}
     GameObject: {fileID: 866676010}
     mainMusicEventReference:
       Guid:
-        Data1: 1509820041
-        Data2: 1286563589
-        Data3: -617300815
-        Data4: -2108548751
-      Path: event:/Music/ForestMusic
-    audioAction: 2
+        Data1: -2009030531
+        Data2: 1315543953
+        Data3: -137307252
+        Data4: -1635988274
+      Path: event:/Music/DarkerRA105Theme
+    audioAction: 4
     parameter: 
     targetValue: 0
 --- !u!65 &1900922353
@@ -110584,8 +110584,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.55, y: 3.71, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 44.94, y: 14.28, z: 1}
+  m_Center: {x: 0, y: 0.21, z: 0}
 --- !u!4 &1900922354
 Transform:
   m_ObjectHideFlags: 0
@@ -110594,13 +110594,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900922351}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.949999, y: -2.6270008, z: 4.5700073}
+  m_LocalRotation: {x: -0, y: 0.70135045, z: -0, w: 0.7128167}
+  m_LocalPosition: {x: -11.87, y: 4.6, z: -0.19}
   m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 89.071, z: 0}
 --- !u!1 &1903333931
 GameObject:
   m_ObjectHideFlags: 0

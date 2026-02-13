@@ -6055,6 +6055,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108934163}
   m_Mesh: {fileID: -7105879592757971332, guid: b64e9bc9b49457b43bf7696604b84f16, type: 3}
+--- !u!1 &109047115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 109047118}
+  - component: {fileID: 109047117}
+  - component: {fileID: 109047116}
+  m_Layer: 0
+  m_Name: AudioTrigger (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &109047116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109047115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f111f80878af1f24f9861a6bca0649f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSettings:
+  - destroyAfterUse: 1
+    emitter: {fileID: 0}
+    GameObject: {fileID: 866676010}
+    mainMusicEventReference:
+      Guid:
+        Data1: 760280979
+        Data2: 1240027836
+        Data3: 441073084
+        Data4: -1859161880
+      Path: event:/Music/ForestThemeV2
+    audioAction: 3
+    parameter: ForestThemePuzzleFinished
+    targetValue: 0
+--- !u!65 &109047117
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109047115}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 44.94, y: 14.28, z: 1}
+  m_Center: {x: 0, y: 0.21, z: 0}
+--- !u!4 &109047118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109047115}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.70135045, z: -0, w: 0.7128167}
+  m_LocalPosition: {x: -10.5, y: 4.6, z: -0.2}
+  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 89.071, z: 0}
 --- !u!1 &114077409
 GameObject:
   m_ObjectHideFlags: 0
@@ -49321,11 +49401,11 @@ MonoBehaviour:
   combatWaitTime: 3
   music01Reference:
     Guid:
-      Data1: -1001199821
-      Data2: 1276620262
-      Data3: -1109335903
-      Data4: 2075268541
-    Path: event:/Music/RA105Theme
+      Data1: 760280979
+      Data2: 1240027836
+      Data3: 441073084
+      Data4: -1859161880
+    Path: event:/Music/ForestThemeV2
   music02Reference:
     Guid:
       Data1: -2009030531
@@ -49335,11 +49415,11 @@ MonoBehaviour:
     Path: event:/Music/DarkerRA105Theme
   musicBossReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1100006394
+      Data2: 1248074715
+      Data3: -1042695030
+      Data4: 839462688
+    Path: event:/Music/FirstMeetingTheme
   stingerGameOverReference:
     Guid:
       Data1: 0
@@ -110544,27 +110624,14 @@ MonoBehaviour:
     GameObject: {fileID: 866676010}
     mainMusicEventReference:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
-    audioAction: 2
-    parameter: 
-    targetValue: 0
-  - destroyAfterUse: 1
-    emitter: {fileID: 0}
-    GameObject: {fileID: 866676010}
-    mainMusicEventReference:
-      Guid:
-        Data1: -2009030531
-        Data2: 1315543953
-        Data3: -137307252
-        Data4: -1635988274
-      Path: event:/Music/DarkerRA105Theme
-    audioAction: 4
-    parameter: 
-    targetValue: 0
+        Data1: 760280979
+        Data2: 1240027836
+        Data3: 441073084
+        Data4: -1859161880
+      Path: event:/Music/ForestThemeV2
+    audioAction: 3
+    parameter: ForestThemePuzzleFinished
+    targetValue: 1
 --- !u!65 &1900922353
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110595,7 +110662,7 @@ Transform:
   m_GameObject: {fileID: 1900922351}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70135045, z: -0, w: 0.7128167}
-  m_LocalPosition: {x: -11.87, y: 4.6, z: -0.19}
+  m_LocalPosition: {x: 13, y: 4.6, z: 0.2}
   m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -125338,3 +125405,4 @@ SceneRoots:
   - {fileID: 404949071}
   - {fileID: 866676012}
   - {fileID: 1900922354}
+  - {fileID: 109047118}

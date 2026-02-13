@@ -47,10 +47,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1045450866
-      Data2: 1204904773
-      Data3: 178622879
-      Data4: 882449157
+      Data1: 1701382219
+      Data2: 1301716800
+      Data3: -1106344778
+      Data4: -432169580
     Path: event:/AMB/AmbianceManager
   Event: 
   EventPlayTrigger: 1

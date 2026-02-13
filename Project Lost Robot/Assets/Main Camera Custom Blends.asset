@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CustomBlends:
   - From: '**ANY CAMERA**'
-    To: DollyCamera
+    To: DeadRobotCamera
     Blend:
       Style: 0
       Time: 0

@@ -26,19 +26,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_147A9C7C:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4677426689d48a14589ad72edebebe02, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_212F5739:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f0e4d0228fdccf147afb16e16271f4fe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_37128E5A:
-        m_Texture: {fileID: 2800000, guid: 76b56906bd38ecb46b690ea1eada2879, type: 3}
+        m_Texture: {fileID: 2800000, guid: b8cb1c4034ae67d4986c1a926a5b9a88, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_3E22ED97:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 67feb4b0442bb5940bec253c7668ce52, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_5A30CED6:
@@ -108,17 +108,17 @@ Material:
     m_Ints: []
     m_Floats:
     - Boolean_9521EBEF: 0
-    - Vector1_1496B9E: 1
+    - Vector1_1496B9E: 0.746
     - Vector1_2C26F538: 0
     - Vector1_4BD452E9: 1
-    - Vector1_812118B2: 0
-    - Vector1_87498438: 0
-    - Vector1_940F1EE5: 0
-    - Vector1_A1C292FC: -2.98
-    - Vector1_BD2D83FC: 0
-    - Vector1_D16A3988: 2.41
+    - Vector1_812118B2: 2.98
+    - Vector1_87498438: 0.503
+    - Vector1_940F1EE5: 0.729
+    - Vector1_A1C292FC: -2.62
+    - Vector1_BD2D83FC: 1
+    - Vector1_D16A3988: 4.34
     - Vector1_E4438A04: 0.01
-    - Vector1_EB338E2: 100
+    - Vector1_EB338E2: 164
     - _AlphaClip: 0
     - _BaseMapPremultiply: 0
     - _Blend: 0
@@ -190,7 +190,7 @@ Material:
     - Color_FCC13014: {r: 1, g: 1, b: 1, a: 1}
     - Vector2_7FC46C33: {r: 1, g: 1, b: 0, a: 0}
     - Vector4_6BA78253: {r: 5, g: 5, b: 0, a: 0}
-    - Vector4_85A08B9C: {r: 10, g: 10, b: 0, a: 0}
+    - Vector4_85A08B9C: {r: 5, g: 5, b: 0, a: 0}
     - _BaseColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _ColorDim: {r: 0.8, g: 0.8, b: 0.8, a: 1}

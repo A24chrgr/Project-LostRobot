@@ -550,6 +550,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 18452a178c49f5c488ad6f05aceb4ce3, type: 3}
   m_PrefabInstance: {fileID: 77329147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &137832552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 137832555}
+  - component: {fileID: 137832554}
+  - component: {fileID: 137832553}
+  m_Layer: 0
+  m_Name: AudioTrigger (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &137832553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137832552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f111f80878af1f24f9861a6bca0649f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSettings:
+  - destroyAfterUse: 0
+    emitter: {fileID: 0}
+    GameObject: {fileID: 807105859}
+    mainMusicEventReference:
+      Guid:
+        Data1: 1964307665
+        Data2: 1322183127
+        Data3: -965756488
+        Data4: 359189666
+      Path: event:/Music/Placeholder
+    audioAction: 2
+    parameter: 
+    targetValue: 0
+  - destroyAfterUse: 0
+    emitter: {fileID: 0}
+    GameObject: {fileID: 807105859}
+    mainMusicEventReference:
+      Guid:
+        Data1: 1964307665
+        Data2: 1322183127
+        Data3: -965756488
+        Data4: 359189666
+      Path: event:/Music/Placeholder
+    audioAction: 2
+    parameter: 
+    targetValue: 0
+--- !u!65 &137832554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137832552}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 4.55, y: 3.71, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &137832555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137832552}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.95, y: -2.6270008, z: 4.57}
+  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &162011733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6285625472683073065, guid: 60f4d9047ede0934cae40f6b8eab471d, type: 3}
@@ -12775,5 +12868,6 @@ SceneRoots:
   - {fileID: 1734508550}
   - {fileID: 559600209}
   - {fileID: 1231082291}
+  - {fileID: 137832555}
   - {fileID: 807105861}
   - {fileID: 181089857}

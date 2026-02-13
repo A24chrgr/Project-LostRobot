@@ -70,8 +70,9 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
         else
         {
             instance = this;
+            DontDestroyOnLoad(target:this);
         }
-        DontDestroyOnLoad(target:this);
+        
       
     }
 	//IN COMBAT?--v-v-v-v---------------------------------------------

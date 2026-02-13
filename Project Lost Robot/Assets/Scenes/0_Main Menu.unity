@@ -976,36 +976,36 @@ MonoBehaviour:
     Path: event:/Music/MainMenuMusic
   music02Reference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -2009030531
+      Data2: 1315543953
+      Data3: -137307252
+      Data4: -1635988274
+    Path: event:/Music/DarkerRA105Theme
   musicBossReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -2009030531
+      Data2: 1315543953
+      Data3: -137307252
+      Data4: -1635988274
+    Path: event:/Music/DarkerRA105Theme
   stingerGameOverReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -2009030531
+      Data2: 1315543953
+      Data3: -137307252
+      Data4: -1635988274
+    Path: event:/Music/DarkerRA105Theme
   paramName: 
   paramValue: 0
   vcaPath: 
   busPath: 
   music:
     Guid:
-      Data1: 1509820041
-      Data2: 1286563589
-      Data3: -617300815
-      Data4: -2108548751
-    Path: event:/Music/ForestMusic
+      Data1: -2009030531
+      Data2: 1315543953
+      Data3: -137307252
+      Data4: -1635988274
+    Path: event:/Music/DarkerRA105Theme
 --- !u!4 &686582226
 Transform:
   m_ObjectHideFlags: 0

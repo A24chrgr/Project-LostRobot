@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Oskar_Scene.unity
     guid: e551a760037128f49901b34e268e41f9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/3_CaveWithDeadRobot.unity
     guid: 846e5960d4528e24f92dbbb142287ff0
   - enabled: 1
@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1_OpeningV2.unity
     guid: 09e5f6dac14a3419a984ef90fc492899
+  - enabled: 1
+    path: Assets/Scenes/2_GamePlay_Saved.unity
+    guid: da7dd401d68b5914283d6935b57a8ca7
+  - enabled: 1
+    path: Assets/Scenes/3_CaveWithDeadRobotV2.unity
+    guid: 88ecd070a13aed1408050e88df45393d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f2546233f18496e4683baa990a93c701, type: 3}
   m_UseUCBPForAssetBundles: 0

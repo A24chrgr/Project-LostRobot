@@ -225,7 +225,7 @@ MonoBehaviour:
   scanEvent:
     m_PersistentCalls:
       m_Calls: []
-  isAllowedAnimal: 1
+  isAllowedAnimal: 0
   isAllowedRobot: 1
 --- !u!114 &37873825
 MonoBehaviour:
@@ -244,7 +244,7 @@ MonoBehaviour:
       m_Calls: []
   alertTitle: Analyzed Fruit
   alertMessage: You analyzed a banana!
-  alertDuration: 5
+  alertDuration: 2
 --- !u!23 &37873826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1735,7 +1735,10 @@ GameObject:
   - component: {fileID: 742469265}
   - component: {fileID: 742469264}
   - component: {fileID: 742469263}
-  m_Layer: 0
+  - component: {fileID: 742469269}
+  - component: {fileID: 742469268}
+  - component: {fileID: 742469267}
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,12 +1828,68 @@ Transform:
   m_GameObject: {fileID: 742469262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9900663, y: -3.645631, z: 9.926182}
+  m_LocalPosition: {x: -2.327, y: 0.09, z: -4.363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742469267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742469262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442dd0205c4a44f449858bfde2c06fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onScanned:
+    m_PersistentCalls:
+      m_Calls: []
+  alertTitle: Impossible Cube Analyzed
+  alertMessage: That is impossible!
+  alertDuration: 2
+--- !u!114 &742469268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742469262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6703b0eeedfdc0438180ab3e86266ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &742469269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742469262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406605e068c6eaa4289fed3d4fd79352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  pickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  punchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  scanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isAllowedAnimal: 0
+  isAllowedRobot: 1
 --- !u!1 &764782916
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,7 +4875,7 @@ GameObject:
   - component: {fileID: 1804109498}
   - component: {fileID: 1804109497}
   - component: {fileID: 1804109496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: <Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,9 +4897,9 @@ MonoBehaviour:
   onScanned:
     m_PersistentCalls:
       m_Calls: []
-  alertTitle: 
-  alertMessage: 
-  alertDuration: 0
+  alertTitle: Analyzed Ball
+  alertMessage: You have analyzed the ball!!!!
+  alertDuration: 2
 --- !u!114 &1804109497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4877,7 +4936,7 @@ MonoBehaviour:
   scanEvent:
     m_PersistentCalls:
       m_Calls: []
-  isAllowedAnimal: 1
+  isAllowedAnimal: 0
   isAllowedRobot: 1
 --- !u!135 &1804109499
 SphereCollider:
@@ -4962,7 +5021,7 @@ Transform:
   m_GameObject: {fileID: 1804109495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.403, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6658,6 +6717,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1554641324}
     m_Modifications:
+    - target: {fileID: 552778372290160734, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 796567411787014560, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6753,10 +6816,26 @@ PrefabInstance:
     - target: {fileID: 2062516713874716658, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467196265935931720, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_text
+      value: Sub DirectiveSub Directive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358727499603256961, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4175518167614230126, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935212195891298399, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_PreferredWidth
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935212195891298399, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_PreferredHeight
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4937209115397178671, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6812,7 +6891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106858918199814120, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 310.1
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 7106858918199814120, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6820,11 +6899,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106858918199814120, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 244.95
+      value: 245
       objectReference: {fileID: 0}
     - target: {fileID: 7106858918199814120, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.01999
+      value: -226.04001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160805855531851860, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_MinHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160805855531851860, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_PreferredWidth
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160805855531851860, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_PreferredHeight
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167816474500559762, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_text
+      value: Reach The CityReach The City
       objectReference: {fileID: 0}
     - target: {fileID: 7336835516142162195, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6833,6 +6928,10 @@ PrefabInstance:
     - target: {fileID: 7336835516142162195, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375106658294477070, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
+      propertyPath: m_PreferredWidth
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 8697714235818307909, guid: e0d0a4d74bfdeb14b907b1778a358e78, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7147,7 +7246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2163548962792773700, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: field of view
-      value: 60.000004
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2688076487600603371, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: DefaultBlend.Style
@@ -7155,31 +7254,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.456597
+      value: 2.58
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.864303
+      value: 8.79
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.078385
+      value: -14.780001
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.84809446
+      value: 0.92702365
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.43218225
+      value: 0.3750029
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.27310374
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.13917151
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7743507575086181234, guid: be3bc03ad46c804419bf459d45457aad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7232,7 +7331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.size
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].name
+      value: Second Directive
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.data[2].name
@@ -7240,15 +7343,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.data[0].description
-      value: Explore and find a way to the forgotten city of the forgotten world.
+      value: This is the first directive. (Scan some things!)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].description
+      value: This is the second directive.
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.data[2].description
       value: Explore the city and find a way to reach the Plains.
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[0].subDirectives.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.data[2].subDirectives.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[0].subDirectives.Array.data[1].name
+      value: Second Sub Directive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[0].name
+      value: First Sub Directive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[1].name
+      value: Second Sub Directive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[2].name
+      value: Scan Murals
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.data[2].subDirectives.Array.data[0].name
@@ -7261,6 +7392,26 @@ PrefabInstance:
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.data[2].subDirectives.Array.data[2].name
       value: Scan Murals
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[0].subDirectives.Array.data[0].description
+      value: This is the first sub directive. (scan fruit)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[0].subDirectives.Array.data[1].description
+      value: This is the second sub directive. (scan ball)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[0].description
+      value: This is the first sub directive. Scan the flying object (impossible)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[1].description
+      value: This is the second sub directive. (scan ball)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[2].description
+      value: Scan ancient murals on city walls left by the earlier civilizatiob.
       objectReference: {fileID: 0}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: directives.Array.data[2].subDirectives.Array.data[0].description
@@ -7278,6 +7429,22 @@ PrefabInstance:
       propertyPath: DirectiveComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1337495627}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[0].subDirectives.Array.data[0].missionObject
+      value: 
+      objectReference: {fileID: 37873825}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[0].subDirectives.Array.data[1].missionObject
+      value: 
+      objectReference: {fileID: 1804109496}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[0].missionObject
+      value: 
+      objectReference: {fileID: 742469267}
+    - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
+      propertyPath: directives.Array.data[1].subDirectives.Array.data[1].missionObject
+      value: 
+      objectReference: {fileID: 1804109496}
     - target: {fileID: 3812753791183863979, guid: 26ee85d99e1d91b4e86c2699c698a890, type: 3}
       propertyPath: SubDirectiveComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7490,6 +7657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3f2cfa7550a0b4b9a0f7fcade0aac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!136 &8133404269029768059
 CapsuleCollider:
   m_ObjectHideFlags: 0

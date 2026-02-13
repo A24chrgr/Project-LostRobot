@@ -21,7 +21,7 @@ namespace Grupp14
         private TextMeshProUGUI SubDirectiveName;
         private TextMeshProUGUI SubDirectiveDescription;
 
-        private void Start()
+        private void Awake()
         {
             //Finding GameObjects
             AlertBoxTitle = GameObject.Find("AlertBoxTitle").GetComponent<TextMeshProUGUI>();
@@ -34,7 +34,10 @@ namespace Grupp14
             //Finding Managers
             alertManager = GameObject.Find("AlertManager").GetComponent<AlertManager>();
             directiveManager = GameObject.Find("DirectiveManager").GetComponent<DirectiveManager>();
-            
+        }
+
+        private void Start()
+        {
             //Subscribing to Events
             alertManager.onAlertStarted.AddListener(OnAlertStarted);
             alertManager.onAlertEnded.AddListener(OnAlertEnded);
@@ -43,18 +46,9 @@ namespace Grupp14
             
             currentDirectiveIndex = directiveManager.currentDirectiveIndex;
             currentSubDirectiveIndex = directiveManager.currentSubDirectiveIndex;
-            
-            if (directiveManager.directives.Count > 0)
-            {
-                NewDirective(directiveManager.directives[currentDirectiveIndex]);
-                if (directiveManager.directives[currentDirectiveIndex].subDirectives.Count > 0)
-                {
-                    NewSubDirective(directiveManager.directives[currentDirectiveIndex].subDirectives[currentSubDirectiveIndex]);
-                } 
-            }
         }
 
-        private void NewDirective(Directive directive)
+        public void AlertNewDirective(Directive directive)
         {
             DirectiveName.text = directive.name;
             DirectiveDescription.text = directive.description;
@@ -66,7 +60,7 @@ namespace Grupp14
             });
         }
 
-        private void NewSubDirective(SubDirective subDirective)
+        public void AlertNewSubDirective(SubDirective subDirective)
         {
             SubDirectiveName.text = subDirective.name;
             SubDirectiveDescription.text = subDirective.description;
@@ -92,25 +86,12 @@ namespace Grupp14
         
         private void OnDirectiveComplete()
         {
-            currentDirectiveIndex++;
-            currentSubDirectiveIndex = 0;
-            if (currentDirectiveIndex < directiveManager.directives.Count)
-            {
-                NewDirective(directiveManager.directives[currentDirectiveIndex]);
-                if (directiveManager.directives[currentDirectiveIndex].subDirectives.Count > 0)
-                {
-                    NewSubDirective(directiveManager.directives[currentDirectiveIndex].subDirectives[currentSubDirectiveIndex]);
-                }
-            }
+            //Handled in Directive Manager instead
         }
 
         private void OnSubDirectiveComplete()
         {
-            currentSubDirectiveIndex++;
-            if (currentSubDirectiveIndex < directiveManager.directives[currentDirectiveIndex].subDirectives.Count)
-            {
-                NewSubDirective(directiveManager.directives[currentDirectiveIndex].subDirectives[currentSubDirectiveIndex]);
-            }
+            //Handled in Directive Manager instead
         }
     }
 }

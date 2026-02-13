@@ -100,6 +100,7 @@ public class PlayerJump : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
                 isGrounded = true;
+                anim.SetBool("isGrounded", true);
             }
             else
             {

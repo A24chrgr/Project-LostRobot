@@ -6180,7 +6180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousScene: 
   currentScene: 
-  nextScene: 3_CaveWithDeadRobotV2
+  nextScene: 2_GamePlay_Saved
 --- !u!54 &114077413
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63823,7 +63823,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073279771}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -101079,7 +101079,7 @@ Transform:
   m_GameObject: {fileID: 1688433362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1, y: 136.22595, z: -186.3}
+  m_LocalPosition: {x: 28.93, y: 136.22595, z: -185.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

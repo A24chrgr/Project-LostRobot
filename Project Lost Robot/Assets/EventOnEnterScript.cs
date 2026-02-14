@@ -4,8 +4,9 @@ using UnityEngine.Events;
 public class EventOnEnterScript : MonoBehaviour
 
 {
+    public UnityEvent onEnterMango, onEnterRalos, onEnterMidpoint, onEnterCustomTagged, onStayCustomTagged, onExitCustomTagged;
     
-    public UnityEvent onEnterMango, onEnterRalos, onEnterMidpoint;
+    [SerializeField] private String customTagString, customTagStringStay, customTagStringExit;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Mango"))
@@ -20,9 +21,6 @@ public class EventOnEnterScript : MonoBehaviour
             Debug.Log("Ralos entered");
         }
         
-        
-        
-        
         //För att aktivera onEnterMidpoint eventet nedan (t.ex. för scene transitions - både i fallet där spelarna befinner sig vid samma punkt OCH där de
         //måste befinna sig vid olika punkter) placera triggerzonen med detta script
         //exakt där spelarnas midpoint object skulle positioneras mellan spelarna då de står på rätt plats(er)
@@ -33,7 +31,31 @@ public class EventOnEnterScript : MonoBehaviour
             Debug.Log("midpoint entered");
         }
         
+        if (other.gameObject.CompareTag(customTagString))
+        {
+            onEnterCustomTagged.Invoke();
+            Debug.Log("Object with tag "+(customTagString)+" entered");
+        }
+        
     }
-    
-    
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag(customTagStringStay))
+        {
+            onStayCustomTagged.Invoke();
+            Debug.Log("Object with tag "+(customTagStringStay)+" entered and stayed");
+        }
+        
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag(customTagStringExit))
+        {
+            onExitCustomTagged.Invoke();
+            Debug.Log("Object with tag " + (customTagStringExit) + " exited");
+        }
+    }
 }

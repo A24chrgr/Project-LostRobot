@@ -8,6 +8,8 @@ public class CameraArea : MonoBehaviour
     
     [SerializeField] private CinemachineCamera _camera;
     
+    [SerializeField] private String tagToCompare = "PlayersMidPoint";
+    
     public CinemachineCamera Camera
     {
         get { return _camera; }
@@ -25,7 +27,7 @@ public class CameraArea : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlayersMidPoint"))
+        if (other.CompareTag(tagToCompare))
         {
             OnPlayerEntered?.Invoke(this);
             Debug.Log("Player Entered");

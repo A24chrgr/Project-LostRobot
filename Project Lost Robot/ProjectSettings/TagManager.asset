@@ -11,6 +11,7 @@ TagManager:
   - Fruit
   - Mango
   - Ralos
+  - PushBlock
   layers:
   - Default
   - TransparentFX

@@ -24,11 +24,22 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - From: '**ANY CAMERA**'
-    To: '**ANY CAMERA**'
+  - From: JumpCamera
+    To: DollyCamera2
     Blend:
       Style: 1
-      Time: 2
+      Time: 3
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: DollyCamera1
+    To: DollyCamera2
+    Blend:
+      Style: 1
+      Time: 3
       CustomCurve:
         serializedVersion: 2
         m_Curve: []

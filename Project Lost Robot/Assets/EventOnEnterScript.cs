@@ -6,7 +6,7 @@ public class EventOnEnterScript : MonoBehaviour
 {
     public UnityEvent onEnterMango, onEnterRalos, onEnterMidpoint, onEnterCustomTagged, onStayCustomTagged, onExitCustomTagged;
     
-    [SerializeField] private String customTagString, customTagStringStay, customTagStringExit;
+    //[SerializeField] private String customTagString = "PushBlock", customTagStringStay = "EditorOnly", customTagStringExit = "Mango";
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Mango"))
@@ -31,31 +31,43 @@ public class EventOnEnterScript : MonoBehaviour
             Debug.Log("midpoint entered");
         }
         
-        if (other.gameObject.CompareTag(customTagString))
+        // if (other.gameObject.CompareTag(customTagString))
+        // {
+        //     onEnterCustomTagged.Invoke();
+        //     Debug.Log("Object with tag "+(customTagString)+" entered");
+        // }
+        
+        if (other.gameObject.CompareTag("PushBlock"))
         {
             onEnterCustomTagged.Invoke();
-            Debug.Log("Object with tag "+(customTagString)+" entered");
+            Debug.Log("Pushblock entered");
         }
         
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag(customTagStringStay))
-        {
-            onStayCustomTagged.Invoke();
-            Debug.Log("Object with tag "+(customTagStringStay)+" entered and stayed");
-        }
-        
-
-    }
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     if (other.gameObject.CompareTag(customTagStringStay))
+    //     {
+    //         onStayCustomTagged.Invoke();
+    //         Debug.Log("Object with tag "+(customTagStringStay)+" entered and stayed");
+    //     }
+    //     
+    //
+    // }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(customTagStringExit))
+        // if (other.gameObject.CompareTag(customTagStringExit))
+        // {
+        //     onExitCustomTagged.Invoke();
+        //     Debug.Log("Object with tag " + (customTagStringExit) + " exited");
+        // }
+        
+        if (other.gameObject.CompareTag("Mango"))
         {
             onExitCustomTagged.Invoke();
-            Debug.Log("Object with tag " + (customTagStringExit) + " exited");
+            Debug.Log("Object with tag Mango exited");
         }
     }
 }
